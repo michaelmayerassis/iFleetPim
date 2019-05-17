@@ -66,7 +66,7 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Label Content="Data Saida:" Grid.Column="0" Margin="2,49,27,-50" Grid.Row="1"/>
-                                    <DatePicker Grid.Row="1" BorderThickness="0,0,0,3" Margin="2,98,107,-98" FontSize="20"/>
+                                    <DatePicker Grid.Row="1" BorderThickness="0,0,0,3" Margin="2,98,81,-98" FontSize="20"/>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Grid.Row="3" Margin="0,0,30,30">
@@ -95,7 +95,7 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Button x:Name="btnCadSeguro" Grid.Column="0" Foreground="White"
+                                    <Button x:Name="btnOrdemServico" Grid.Column="0" Foreground="White"
                                     materialDesign:ShadowAssist.ShadowDepth="Depth2" 
                                     Margin="-507,179,586,-234"
                                     BorderBrush="{x:Null}" Height="Auto">
@@ -105,7 +105,7 @@
                                                 <GradientStop Color="#FFB3942B" Offset="0.695"/>
                                             </LinearGradientBrush>
                                         </Button.Background>
-                                        CADASTRAR SEGURO
+                                        ORDEM SERVIÇO
                                     </Button>
                                     <Button Grid.Column="1" Foreground="White"
                                     materialDesign:ShadowAssist.ShadowDepth="Depth2" 
@@ -135,6 +135,16 @@
                                 </Grid>
                             </StackPanel>
                         </Grid>
+                        <TextBox Height="130" TextWrapping="Wrap" Margin="2,20,71,0" RenderTransformOrigin="0.5,0.5" BorderThickness="3,3,3,3">
+                            <TextBox.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform AngleY="-0.254"/>
+                                    <RotateTransform/>
+                                    <TranslateTransform Y="-2.533"/>
+                                </TransformGroup>
+                            </TextBox.RenderTransform>
+                        </TextBox>
                     </StackPanel>
 
                     <StackPanel x:Name="listaVeiculo" Visibility="Hidden">
