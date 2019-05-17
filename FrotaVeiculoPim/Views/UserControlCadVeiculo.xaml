@@ -1,0 +1,263 @@
+﻿<UserControl x:Class="FrotaVeiculoPim.Views.UserControlCadVeiculo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:FrotaVeiculoPim.Views"
+             mc:Ignorable="d" 
+             Height="742" Width="1190.684">
+    <Grid>
+        <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.3}" Margin="1,17,-1,-17">
+            <StackPanel Background="White" Margin="0,-18,0,0">
+                <TextBlock Style="{StaticResource titulo}" Margin="0,30,0,0" >
+                    VEÍCULO
+                </TextBlock>
+                <Separator></Separator>
+                <Grid Margin="60,30,60,0">
+                    
+                    <StackPanel x:Name="cadVeiculo">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Margin="0,0,30,30">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Nome:" Grid.Column="0" Margin="0,6,0,10"/>
+                                    <TextBox x:Name="txtNomeVeiculo" Grid.Row="1"  Margin="0,0,80,0"></TextBox>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Row="0" Grid.Column="1" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Placa:" Grid.Column="0" Margin="0,6,0,10"/>
+                                    <TextBox Grid.Row="1" Margin="0,0,80,0"></TextBox>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Margin="0,0,30,30">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Marca:" Grid.Column="0" Margin="0,6,0,10"/>
+                                    <TextBox Grid.Row="1"  Margin="0,0,80,0"></TextBox>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="1" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Cor:" Grid.Column="0" Margin="0,6,0,10"/>
+                                    <TextBox Grid.Row="1"  Margin="0,0,80,0"></TextBox>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Margin="0,0,30,30">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Ano de Fabricação:" Grid.Column="0" Margin="0,6,0,10"/>
+                                    <DatePicker Grid.Row="1" BorderThickness="0,0,0,3" Margin="0,0,80,0" FontSize="20"></DatePicker>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Grid.Column="1" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Ano do Modelo:" Grid.Column="0" Margin="0,6,0,10"/>
+                                    <DatePicker Grid.Row="1" BorderThickness="0,0,0,3" Margin="0,0,80,0" FontSize="20"></DatePicker>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="4">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button x:Name="btnCadSeguro" Grid.Column="0" Foreground="White"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth2" 
+                                    Margin="-536,0,615,-55"
+                                    BorderBrush="{x:Null}" Height="Auto"
+                                        Click="BtnCadSeguro_Click">
+                                        <Button.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FFF9DD7F" Offset="0"/>
+                                                <GradientStop Color="#FFB3942B" Offset="0.695"/>
+                                            </LinearGradientBrush>
+                                        </Button.Background>
+                                        CADASTRAR SEGURO
+                                    </Button>
+                                    <Button Grid.Column="1" Foreground="White"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth2" 
+                                    Margin="0,0,79,-55"
+                                    BorderBrush="{x:Null}" Height="Auto">
+                                        <Button.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF4413C7" Offset="0"/>
+                                                <GradientStop Color="#FF0C0C6A" Offset="0.799"/>
+                                            </LinearGradientBrush>
+                                        </Button.Background>
+                                        SALVAR
+                                    </Button>
+                                    <Button Grid.Column="0" Foreground="White"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth2" 
+                                    Margin="0,0,79,-55"
+                                    BorderBrush="{x:Null}" Height="Auto"
+                                        x:Name="btnListaVeiculo" Click="BtnListaVeiculo_Click">
+                                        <Button.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF52E6FD" Offset="0"/>
+                                                <GradientStop Color="#FF3157FF" Offset="0.799"/>
+                                            </LinearGradientBrush>
+                                        </Button.Background>
+                                        LISTAR VEÍCULOS
+                                    </Button>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel x:Name="listaVeiculo" Visibility="Hidden">
+                        <StackPanel x:Name="stpListarVeiculo">
+                            <DataGrid Margin="0,0,0,30">
+
+                            </DataGrid>
+                            <Button x:Name="btnVoltar" Click="BtnVoltar_Click" Foreground="White"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth2" 
+                                    Margin="0,0,864,-55"
+                                    BorderBrush="{x:Null}" Height="Auto" Content="VOLTAR">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF4413C7" Offset="0"/>
+                                        <GradientStop Color="#FF0C0C6A" Offset="0.799"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                    
+                    <StackPanel x:Name="stpAlterarVeiculo" Visibility="Hidden">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Margin="0,0,30,30">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Nome:" Grid.Column="0" Margin="0,6,0,10"/>
+                                    <TextBox  Grid.Row="1"  Margin="0,0,80,0"></TextBox>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Row="0" Grid.Column="1" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Placa:" Grid.Column="0" Margin="0,6,0,10"/>
+                                    <TextBox Grid.Row="1" Margin="0,0,80,0"></TextBox>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Margin="0,0,30,30">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Marca:" Grid.Column="0" Margin="0,6,0,10"/>
+                                    <TextBox Grid.Row="1"  Margin="0,0,80,0"></TextBox>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="1" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Cor:" Grid.Column="0" Margin="0,6,0,10"/>
+                                    <TextBox Grid.Row="1"  Margin="0,0,80,0"></TextBox>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Margin="0,0,30,30">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Ano de Fabricação:" Grid.Column="0" Margin="0,6,0,10"/>
+                                    <DatePicker Grid.Row="1" BorderThickness="0,0,0,3" Margin="0,0,80,0" FontSize="20"></DatePicker>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Grid.Column="1" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Ano do Modelo:" Grid.Column="0" Margin="0,6,0,10"/>
+                                    <DatePicker Grid.Row="1" BorderThickness="0,0,0,3" Margin="0,0,80,0" FontSize="20"></DatePicker>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="4">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Grid.Column="1" Foreground="White"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth2" 
+                                    Margin="0,0,79,-55"
+                                    BorderBrush="{x:Null}" Height="Auto">
+                                        <Button.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF4413C7" Offset="0"/>
+                                                <GradientStop Color="#FF0C0C6A" Offset="0.799"/>
+                                            </LinearGradientBrush>
+                                        </Button.Background>
+                                        SALVAR
+                                    </Button>
+                                 
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+                
+
+            </StackPanel>
+        </materialDesign:TransitioningContent>
+    </Grid>
+</UserControl>

@@ -1,0 +1,273 @@
+﻿<UserControl x:Class="FrotaVeiculoPim.Views.UserControlCadViagem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:FrotaVeiculoPim.Views"
+             mc:Ignorable="d" 
+             Height="742" Width="1190.684">
+    <Grid>
+        <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.3}" Margin="1,17,-1,-17">
+            <StackPanel Background="White" Margin="0,-18,0,0">
+                <TextBlock Style="{StaticResource titulo}" Margin="0,30,0,0" x:Name="tbTitulo">
+                    VIAGEM
+                </TextBlock>
+                <Separator></Separator>
+
+                <Grid>
+                    <StackPanel x:Name="spInicioViagem" Margin="0,60,0,0" >
+                        <Button Width="400" Margin="0,0,0,30"  materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                Foreground="White" BorderBrush="{x:Null}"  Height="auto" FontSize="20px"
+                                x:Name="btnChegadaVeiculo" Click="BtnChegadaVeiculo_Click">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <materialDesign:PackIcon Kind="VanPassenger" Margin="0,0,10,0" Width="20px" Height="26"/>
+                                <TextBlock><Run Text="Chegada de veículo"/></TextBlock>
+                            </StackPanel>
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF52E6FD" Offset="0"/>
+                                    <GradientStop Color="#FF3157FF" Offset="0.799"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                        <Button Width="400" Margin="0,0,0,30"  materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                Foreground="White" BorderBrush="{x:Null}" FontSize="20px" Height="auto"
+                                x:Name="btnSaidaVeiculo" Click="BtnSaidaVeiculo_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="VanPassenger" RenderTransformOrigin="0.5,0.5" Margin="0,0,10,0" Height="27" Width="20px">
+                                    <materialDesign:PackIcon.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                                            <SkewTransform AngleY="0" AngleX="0"/>
+                                            <RotateTransform Angle="0"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </materialDesign:PackIcon.RenderTransform>
+                                </materialDesign:PackIcon>
+                                <TextBlock>Saída de veículo</TextBlock>
+                            </StackPanel>
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF52E6FD" Offset="0"/>
+                                    <GradientStop Color="#FF3157FF" Offset="0.799"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                        <Button Width="400" Margin="0,0,0,30" materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                Foreground="white" BorderBrush="{x:Null}" FontSize="20px" Height="auto"
+                                x:Name="btnConsultarViagem" Click="BtnConsultarViagem_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Highway" Margin="0,0,10,0" Height="27" Width="20px"/>
+                                <TextBlock>Consultar veículos em viagem</TextBlock>
+                            </StackPanel>
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF52E6FD" Offset="0"/>
+                                    <GradientStop Color="#FF3157FF" Offset="0.799"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+
+                    <StackPanel x:Name="spCarroSaindo" Visibility="Hidden">
+                        <Grid Margin="60,30,60,0" ToolTip="Informe o CPF do motorista">
+                            <Label Content="Informe o CPF do motorista:"/>
+                            <TextBox Margin="343,0,472,0" x:Name="txtCpfMotorista" TextChanged="TxtCpfMotorista_TextChanged"></TextBox>
+                        </Grid>
+
+                        <Grid Margin="60,30,60,0" x:Name="gridVeiculo" ToolTip="Informe o veiculo">
+                            <Label Content="Informe o veículo:"/>
+                            <ComboBox Margin="344,0,471,0" FontFamily="IBM Plex Sans" FontSize="20"
+                                  x:Name="cbVeiculoMulta" SelectionChanged="CbVeiculoMulta_SelectionChanged">
+                                <ComboBoxItem>Uno</ComboBoxItem>
+                                <ComboBoxItem>HB20</ComboBoxItem>
+                            </ComboBox>
+                        </Grid>
+                        <Grid Margin="60,30,60,0" x:Name="gridCadViagem">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="1" Margin="0,0,30,30">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Local:" Grid.Column="0" Margin="0,6,0,10"/>
+                                    <TextBox x:Name="txtLocalViagem" x:FieldModifier="public" Grid.Row="1"  Margin="0,0,80,0"></TextBox>
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="0" Grid.Column="0" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Data de Saída:" Grid.Column="0" Margin="0,6,0,10"/>
+                                    <DatePicker Grid.Row="1" BorderThickness="0,0,0,3" Margin="0,0,80,0" FontSize="20"></DatePicker>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="4">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button Grid.Column="1" Foreground="White"
+                                        materialDesign:ShadowAssist.ShadowDepth="Depth2" 
+                                        Margin="0,0,79,-55"
+                                        BorderBrush="{x:Null}" Height="Auto">
+                                        <Button.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF4413C7" Offset="0"/>
+                                                <GradientStop Color="#FF0C0C6A" Offset="0.799"/>
+                                            </LinearGradientBrush>
+                                        </Button.Background>
+                                        SALVAR
+                                    </Button>
+
+                                </Grid>
+                            </StackPanel>
+                            <Button x:Name="btnVoltarSaindo" Click="BtnVoltarSaindo_Click" Foreground="White"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth2" 
+                                    Margin="0,0,347,-55"
+                                    BorderBrush="{x:Null}" Height="Auto" Content="VOLTAR" Grid.Row="2">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF4413C7" Offset="0"/>
+                                        <GradientStop Color="#FF0C0C6A" Offset="0.799"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </Grid>
+                    </StackPanel>
+
+
+                    <StackPanel x:Name="spCarroChegando" Visibility="Hidden">
+                        <Grid Margin="60,30,60,0" ToolTip="Informe o CPF do motorista">
+                            <Label Content="Informe o CPF do motorista:"/>
+                            <TextBox Margin="343,0,472,0" x:Name="txtCpfMotoristaCh" TextChanged="TxtCpfMotorista_TextChanged"></TextBox>
+                        </Grid>
+
+                        <Grid Margin="60,30,60,0" x:Name="gridVeiculoCh" ToolTip="Informe o veiculo">
+                            <Label Content="Informe o veículo:"/>
+                            <ComboBox Margin="344,0,471,0" FontFamily="IBM Plex Sans" FontSize="20"
+                                  x:Name="cbVeiculoMultaCh" SelectionChanged="CbVeiculoMulta_SelectionChanged">
+                                <ComboBoxItem>Uno</ComboBoxItem>
+                                <ComboBoxItem>HB20</ComboBoxItem>
+                            </ComboBox>
+                        </Grid>
+                        <Grid Margin="60,30,60,0" x:Name="gridCadViagemCh">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="1" Margin="0,0,30,30">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Local:" Grid.Column="0" Margin="0,6,0,10"/>
+                                    <TextBox x:Name="txtLocalViagemCh" x:FieldModifier="public" Grid.Row="1"  Margin="0,0,80,0"></TextBox>
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="0" Grid.Column="0" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Data de entrada:" Grid.Column="0" Margin="0,6,0,10"/>
+                                    <DatePicker Grid.Row="1" BorderThickness="0,0,0,3" Margin="0,0,80,0" FontSize="20"></DatePicker>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="4">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button Grid.Column="1" Foreground="White"
+                                        materialDesign:ShadowAssist.ShadowDepth="Depth2" 
+                                        Margin="0,0,79,-55"
+                                        BorderBrush="{x:Null}" Height="Auto">
+                                        <Button.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF4413C7" Offset="0"/>
+                                                <GradientStop Color="#FF0C0C6A" Offset="0.799"/>
+                                            </LinearGradientBrush>
+                                        </Button.Background>
+                                        SALVAR
+                                    </Button>
+                                    <Button x:Name="btnVoltarChegando" Click="BtnVoltarChegando_Click" Foreground="White" Grid.Column="0"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth2" 
+                                    Margin="-533,0,613,-55"
+                                    BorderBrush="{x:Null}" Height="Auto" Content="VOLTAR">
+                                        <Button.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF4413C7" Offset="0"/>
+                                                <GradientStop Color="#FF0C0C6A" Offset="0.799"/>
+                                            </LinearGradientBrush>
+                                        </Button.Background>
+                                    </Button>
+                                </Grid>
+                            </StackPanel>
+
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel x:Name="spListarViagem" Margin="10,0,10,0" Visibility="Hidden">
+                        <TextBlock Margin="10,0,0,10" Style="{StaticResource tituloFiltro}">FILTROS</TextBlock>
+                        <Grid Margin="0,0,0,30">
+                            <ComboBox Margin="10,6,1002,7" Cursor="Hand" FontSize="16px"
+                                  x:Name="cbFiltroVeiculo" SelectionChanged="CbFiltroVeiculo_SelectionChanged">
+                                <ComboBoxItem Content="CPF"></ComboBoxItem>
+                                <ComboBoxItem Content="Placa"></ComboBoxItem>
+                            </ComboBox>
+                            <Label x:Name="lblFiltro" Margin="222,0,627,0" Content="Informe um filtro ao lado"></Label>
+                            <TextBox Margin="593,0,319,0" x:Name="txtBuscar" TextChanged="TxtBuscar_TextChanged"/>
+                            <Button Margin="899,0,116,0"
+                                Background="#364EFF" Foreground="White"
+                                materialDesign:ShadowAssist.ShadowDepth="Depth2" 
+                                BorderBrush="{x:Null}" Height="Auto" x:Name="btnBuscar" Click="BtnBuscar_Click">
+                                BUSCAR
+                            </Button>
+                        </Grid>
+                        <DataGrid Margin="0,0,0,30" x:Name="dgViagem">
+
+                        </DataGrid>
+                        <Button x:Name="btnVoltar" Click="BtnVoltar_Click" Foreground="White"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth2" 
+                                    Margin="0,0,964,-55"
+                                    BorderBrush="{x:Null}" Height="Auto" Content="VOLTAR">
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF4413C7" Offset="0"/>
+                                    <GradientStop Color="#FF0C0C6A" Offset="0.799"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </materialDesign:TransitioningContent>
+    </Grid>
+</UserControl>

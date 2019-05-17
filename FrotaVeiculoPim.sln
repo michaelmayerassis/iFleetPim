@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrotaVeiculoPim", "FrotaVeiculoPim\FrotaVeiculoPim.csproj", "{3A1A570F-CE8F-4BD9-B1DF-4FADF8F00FAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleDePecas", "ControleDePecas\ControleDePecas.csproj", "{F4E58C19-BA16-4BDA-8868-D7357B4110F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{605701B9-67E9-4921-9D1C-090FB4E42B37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyTextBoxControl", "CurrencyTextBoxControl\CurrencyTextBoxControl.csproj", "{144A2EE7-09EC-4618-BA94-6593205962C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleMotorista", "ControleMotorista\ControleMotorista.csproj", "{5F9779F6-4691-4769-80A0-B55AE616CC71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleMulta", "ControleMulta\ControleMulta.csproj", "{C044A2FE-4C0C-4BA9-A340-BB45125D8610}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModViagem", "..\..\..\Downloads\git-joaovizu\git-joaovizu\iFleetV2-master\iFleetV2-master\ModViagem\ModViagem.csproj", "{4BE8E0D1-77A4-4BAF-B761-156A52850D75}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A1A570F-CE8F-4BD9-B1DF-4FADF8F00FAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A1A570F-CE8F-4BD9-B1DF-4FADF8F00FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A1A570F-CE8F-4BD9-B1DF-4FADF8F00FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A1A570F-CE8F-4BD9-B1DF-4FADF8F00FAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4E58C19-BA16-4BDA-8868-D7357B4110F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4E58C19-BA16-4BDA-8868-D7357B4110F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4E58C19-BA16-4BDA-8868-D7357B4110F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4E58C19-BA16-4BDA-8868-D7357B4110F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{144A2EE7-09EC-4618-BA94-6593205962C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{144A2EE7-09EC-4618-BA94-6593205962C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{144A2EE7-09EC-4618-BA94-6593205962C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{144A2EE7-09EC-4618-BA94-6593205962C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F9779F6-4691-4769-80A0-B55AE616CC71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F9779F6-4691-4769-80A0-B55AE616CC71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F9779F6-4691-4769-80A0-B55AE616CC71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F9779F6-4691-4769-80A0-B55AE616CC71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C044A2FE-4C0C-4BA9-A340-BB45125D8610}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C044A2FE-4C0C-4BA9-A340-BB45125D8610}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C044A2FE-4C0C-4BA9-A340-BB45125D8610}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C044A2FE-4C0C-4BA9-A340-BB45125D8610}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BE8E0D1-77A4-4BAF-B761-156A52850D75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BE8E0D1-77A4-4BAF-B761-156A52850D75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BE8E0D1-77A4-4BAF-B761-156A52850D75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BE8E0D1-77A4-4BAF-B761-156A52850D75}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77B44A9A-F16D-4074-AF29-ADC11503B253}
+	EndGlobalSection
+EndGlobal

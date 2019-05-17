@@ -1,0 +1,31 @@
+﻿<Window x:Class="FrotaVeiculoPim.Views.ListarPeca"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FrotaVeiculoPim.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Height="800" Width="1300" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,30,0,0">
+        <Grid Height="40" VerticalAlignment="Top">
+            <Button x:Name="btnFecharAplicacao" VerticalAlignment="Top" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" MouseLeave="BtnFecharAplicacao_MouseLeave" MouseEnter="BtnFecharAplicacao_MouseEnter" Click="BtnFecharAplicacao_Click" materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                <materialDesign:PackIcon Kind="Close"
+                                        />
+            </Button>
+        </Grid>
+        <StackPanel Background="White" Margin="0,40,0,0">
+            <TextBlock Style="{StaticResource titulo}" Margin="0,30,0,0" >
+                    PEÇAS
+            </TextBlock>
+            <Separator></Separator>
+            <Grid Margin="60,30,60,0">
+                <StackPanel x:Name="stpListarVeiculo">
+                    <DataGrid x:Name="dgListar" Width="auto" Height="569" IsReadOnly="True" MouseDoubleClick="DgListar_MouseDoubleClick" ColumnWidth="300" HorizontalScrollBarVisibility="Disabled" FontSize="16"/>
+                </StackPanel>
+                <StackPanel x:Name="stpAlterarVeiculo" Visibility="Hidden">
+                    <TextBox x:Name="teste"></TextBox>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
