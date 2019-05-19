@@ -44,7 +44,7 @@ namespace FrotaVeiculoPim.Views
                     if (MessageBox.Show("Há campos em branco, prosseguir com cadastro mesmo assim?", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                     {
                             Pecas();
-                        pecaDAO.CadastrarPeca(peca);
+                        pecaDAO.CadastrarPeca(peca, "cadastrar");
                         if (MessageBox.Show("Cadastro realizado com sucesso, deseja movimentar estoque ?", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                         {
                             AdicionarPeca adicionarPeca = new AdicionarPeca();
@@ -134,6 +134,41 @@ namespace FrotaVeiculoPim.Views
             dgListar.Visibility = Visibility.Collapsed;
             cadPeca.Visibility = Visibility.Visible;
             btnVoltar.Visibility = Visibility.Collapsed;
+        }
+
+        private void DgListar_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            dgListar.Visibility = Visibility.Collapsed;
+            cadPeca.Visibility = Visibility.Visible;
+            btnVoltar.Visibility = Visibility.Collapsed;
+            btnCadastrar.Visibility = Visibility.Collapsed;
+            btnAltera.Visibility = Visibility.Visible;
+            peca = dgListar.SelectedItem as Peca;
+            txtNome.Text = peca.Nome.ToString();
+            txtPrateleira.Text = peca.Pratileira;
+            txtValor.Number = peca.Valor;
+            txtQtdMin.Text = peca.QtdMin.ToString();
+            txtDescricao.Text = peca.Descricao;
+        }
+
+        private void BtnAltera_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtNome.Text == "")
+            {
+                MessageBox.Show("É obrigatório preencher o campo nome para proseguir com o cadastro!");
+            }
+            else
+            {
+                if ((txtPrateleira.Text == "") || (txtQtdMin.Text == "") || (txtDescricao.Text == ""))
+                {
+                    if (MessageBox.Show("Há campos em branco, prosseguir com cadastro mesmo assim?", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    {
+                        Pecas();
+                        pecaDAO.CadastrarPeca(peca, "alterar");
+                        MessageBox.Show("Cadastro alterado com sucesso!");
+                    }
+                }
+            }
         }
     }
 }

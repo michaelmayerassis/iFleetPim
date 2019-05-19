@@ -11,10 +11,17 @@ namespace ControleDePecas.DAO
 {
     public class PecaDAO
     {
-        public void CadastrarPeca(Peca peca)
+        public void CadastrarPeca(Peca peca, string tipo)
         {
             MySqlConnection conn = new SqlConnection().Criar();
-            MySqlCommand command = new MySqlCommand("INSERT INTO Peca (Nome, Descricao, Prateleira, Valor, EstoqueMinimo) values (@Nome, @Descricao, @Prateleira, @Valor, @EstoqueMinimo)", conn);
+            MySqlCommand command = new MySqlCommand();
+            if (tipo == "cadastrar")
+            {
+                 command = new MySqlCommand("INSERT INTO Peca (Nome, Descricao, Prateleira, Valor, EstoqueMinimo) values (@Nome, @Descricao, @Prateleira, @Valor, @EstoqueMinimo)", conn);
+            }else
+            {
+                 command = new MySqlCommand("update Peca set Nome = ? Descricao = ? Prateleira = ? Valor = ? EstoqueMinimo = ?)", conn);
+            }
             command.Parameters.Add(new MySqlParameter("Nome", peca.Nome));
             command.Parameters.Add(new MySqlParameter("Descricao", peca.Descricao));
             command.Parameters.Add(new MySqlParameter("Prateleira", peca.Pratileira));

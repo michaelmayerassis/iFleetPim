@@ -82,6 +82,18 @@ namespace FrotaVeiculoPim
                     ButtonCloseMenu.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                     GridPrincipal.Children.Add(usc);
                     break;
+                case "cadManutencao":
+                    usc = new CadManutencao();
+                    imgFundo.Visibility = Visibility.Collapsed;
+                    ButtonCloseMenu.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                    GridPrincipal.Children.Add(usc);
+                    break;
+                case "cadSeguro":
+                    usc = new CadSeguro();
+                    imgFundo.Visibility = Visibility.Collapsed;
+                    ButtonCloseMenu.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                    GridPrincipal.Children.Add(usc);
+                    break;
             }
         }
 

@@ -67,6 +67,14 @@
                                     </LinearGradientBrush>
                                 </Button.Background>
                             </Button>
+                            <Button x:Name="btnAltera" Content="SALVAR" VerticalAlignment="Top" HorizontalAlignment="Right" Width="184" Margin="0,167,91,-228" Cursor="Hand" Height="61" Grid.Column="1" Grid.Row="1" Foreground="#FFFBF9F9" Visibility="Collapsed" Click="BtnAltera_Click">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF4413C7" Offset="0"/>
+                                        <GradientStop Color="#FF0C0C6A" Offset="0.8"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
                         </Grid>
                         <TextBox x:Name="txtDescricao" Height="141" TextWrapping="Wrap" Margin="113,0,83,0" AcceptsReturn="True" FontSize="36" FontFamily="IBM Plex Sans" BorderThickness="3,3,3,3" MaxLength="250" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
                     </StackPanel>
@@ -127,7 +135,7 @@
 
         </materialDesign:TransitioningContent>
         <StackPanel x:Name="stpListarCadastro" Margin="1,100,4,121">
-            <DataGrid x:Name="dgListar" Width="auto" Height="569" IsReadOnly="True" ColumnWidth="300" HorizontalScrollBarVisibility="Disabled" FontSize="16" Visibility="Collapsed"/>
+            <DataGrid x:Name="dgListar" Width="auto" Height="569" IsReadOnly="True" ColumnWidth="300" HorizontalScrollBarVisibility="Disabled" FontSize="16" Visibility="Collapsed" MouseDoubleClick="DgListar_MouseDoubleClick"/>
         </StackPanel>
         <Button x:Name="btnVoltar" Content="VOLTAR" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="184" Margin="100,71,91,40" Cursor="Hand" Click="btnVoltar_Click" Height="61" Grid.Column="1" Grid.Row="1" Foreground="#FFFBF9F9" Visibility="Collapsed">
             <Button.Background>

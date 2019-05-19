@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FrotaVeiculoPim.Views
+namespace ModuloSeguro
 {
     /// <summary>
-    /// Lógica interna para Seguro.xaml
+    /// Interação lógica para MainWindow.xam
     /// </summary>
-    public partial class Seguro : Window
+    public partial class MainWindow : Window
     {
-        public Seguro()
+        public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void BtnSalvar_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }

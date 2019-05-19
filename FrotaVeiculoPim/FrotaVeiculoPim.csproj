@@ -70,6 +70,7 @@
     <Compile Include="Views\CadPeca.xaml.cs">
       <DependentUpon>CadPeca.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CadSeguro.cs" />
     <Compile Include="Views\Controle_Motorista.xaml.cs">
       <DependentUpon>Controle_Motorista.xaml</DependentUpon>
     </Compile>
@@ -78,9 +79,6 @@
     </Compile>
     <Compile Include="Views\ListarVeiculo.xaml.cs">
       <DependentUpon>ListarVeiculo.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Seguro.xaml.cs">
-      <DependentUpon>Seguro.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControlCadMulta.xaml.cs">
       <DependentUpon>UserControlCadMulta.xaml</DependentUpon>
@@ -127,7 +125,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Seguro.xaml">
+    <Page Include="Views\CadSeguro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

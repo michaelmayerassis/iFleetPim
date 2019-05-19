@@ -28,8 +28,8 @@ namespace FrotaVeiculoPim.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Seguro seguro = new Seguro();
-            seguro.ShowDialog();
+            //Seguro seguro = new Seguro();
+           // seguro.ShowDialog();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -39,8 +39,8 @@ namespace FrotaVeiculoPim.Views
 
         private void BtnCadSeguro_Click(object sender, RoutedEventArgs e)
         {
-            Seguro telaSeguro = new Seguro();
-            telaSeguro.ShowDialog();
+           // Seguro telaSeguro = new Seguro();
+           // telaSeguro.ShowDialog();
         }
 
         private void BtnListaVeiculo_Click(object sender, RoutedEventArgs e)

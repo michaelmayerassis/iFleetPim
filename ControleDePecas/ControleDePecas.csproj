@@ -46,10 +46,12 @@
     <Compile Include="DAO\EstoqueEntradaDAO.cs" />
     <Compile Include="DAO\EstoqueSaidaDAO.cs" />
     <Compile Include="DAO\PecaDAO.cs" />
+    <Compile Include="DAO\PecaDAO1.cs" />
     <Compile Include="DAO\SqlConnection.cs" />
     <Compile Include="Models\EstoqueEntrada.cs" />
     <Compile Include="Models\EstoqueSaida.cs" />
     <Compile Include="Models\Peca.cs" />
+    <Compile Include="Models\Peca1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
