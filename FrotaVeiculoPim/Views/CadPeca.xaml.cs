@@ -165,7 +165,8 @@ namespace FrotaVeiculoPim.Views
                 {
                     if (MessageBox.Show("Há campos em branco, prosseguir com cadastro mesmo assim?", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                     {
-                        pecaDAO.AlterarCadastro(Convert.ToDecimal(txtValor.Text.Replace('$', ' ').Replace('.', ',')), txtNome.Text, txtDescricao.Text, txtPrateleira.Text, Convert.ToInt32(txtQtdMin.Text), Id);
+                        Pecas();
+                        pecaDAO.CadastrarPeca(peca, "alterar");
                         MessageBox.Show("Cadastro alterado com sucesso!");
                     }
                 }else

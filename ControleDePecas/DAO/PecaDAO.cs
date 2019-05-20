@@ -20,7 +20,7 @@ namespace ControleDePecas.DAO
                  command = new MySqlCommand("INSERT INTO Peca (Nome, Descricao, Prateleira, Valor, EstoqueMinimo) values (@Nome, @Descricao, @Prateleira, @Valor, @EstoqueMinimo)", conn);
             }else
             {
-                 command = new MySqlCommand("update Peca set Nome = @Nome Descricao = @Descricao Prateleira = @Prateleira Valor = @Valor EstoqueMinimo = @EstoqueMinimo where Id = @Id)", conn);
+                 command = new MySqlCommand("update Peca set Nome = @Nome, Descricao = @Descricao, Prateleira = @Prateleira, Valor = @Valor, EstoqueMinimo = @EstoqueMinimo where Id = @Id)", conn);
             }
             command.Parameters.Add(new MySqlParameter("Nome", peca.Nome));
             command.Parameters.Add(new MySqlParameter("Descricao", peca.Descricao));
