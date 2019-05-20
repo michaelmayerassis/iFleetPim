@@ -20,13 +20,14 @@ namespace ControleDePecas.DAO
                  command = new MySqlCommand("INSERT INTO Peca (Nome, Descricao, Prateleira, Valor, EstoqueMinimo) values (@Nome, @Descricao, @Prateleira, @Valor, @EstoqueMinimo)", conn);
             }else
             {
-                 command = new MySqlCommand("update Peca set Nome = ? Descricao = ? Prateleira = ? Valor = ? EstoqueMinimo = ?)", conn);
+                 command = new MySqlCommand("update Peca set Nome = @Nome Descricao = @Descricao Prateleira = @Prateleira Valor = @Valor EstoqueMinimo = @EstoqueMinimo where Id = @Id)", conn);
             }
             command.Parameters.Add(new MySqlParameter("Nome", peca.Nome));
             command.Parameters.Add(new MySqlParameter("Descricao", peca.Descricao));
             command.Parameters.Add(new MySqlParameter("Prateleira", peca.Pratileira));
             command.Parameters.Add(new MySqlParameter("Valor", peca.Valor));
             command.Parameters.Add(new MySqlParameter("EstoqueMinimo", peca.QtdMin));
+            command.Parameters.Add(new MySqlParameter("Id", peca.Id));
             command.Prepare();
             try
             {
@@ -42,7 +43,7 @@ namespace ControleDePecas.DAO
         {
             List<Peca> pecas = new List<Peca>();
             MySqlConnection conn = new SqlConnection().Criar();
-            MySqlCommand command = new MySqlCommand("SELECT Nome, Prateleira, Valor, EstoqueMinimo, Quantidade FROM Peca", conn);
+            MySqlCommand command = new MySqlCommand("SELECT Id, Nome, Descricao, Prateleira, Valor, EstoqueMinimo, Quantidade FROM Peca", conn);
             try
             {
                 MySqlDataReader dr = command.ExecuteReader();
@@ -53,6 +54,32 @@ namespace ControleDePecas.DAO
                 conn.Close();
             }
             return pecas;
+        }
+
+        public void AlterarCadastro(decimal valor, string nome, string descricao, string prateleira, int qtdMin, int id)
+        {
+            MySqlConnection conn = new SqlConnection().Criar();
+            MySqlCommand cmd = new MySqlCommand();
+            try
+            {
+                cmd = new MySqlCommand("update Peca set Nome = ?, Descricao = ?, Prateleira = ?, Valor = ?, EstoqueMinimo = ? where Id = ?", conn);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Nome", nome);
+                cmd.Parameters.AddWithValue("@Descricao", descricao);
+                cmd.Parameters.AddWithValue("@Prateleira", prateleira);
+                cmd.Parameters.AddWithValue("@Valor", valor);
+                cmd.Parameters.AddWithValue("@EstoqueMinimo", qtdMin);
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Erro {0}", e);
+            }
         }
 
         public void AlterarQtd(string tipo, decimal valor, string nome)
@@ -160,8 +187,9 @@ namespace ControleDePecas.DAO
             {
                 Peca peca = new Peca()
                 {
+                    Id = Convert.ToInt32(dreader["Id"]),
                     Nome = dreader["Nome"].ToString(),
-                    //Descricao = dreader["Descricao"].ToString(),
+                    Descricao = dreader["Descricao"].ToString(),
                     Pratileira = dreader["Prateleira"].ToString(),
                     Valor = Convert.ToDecimal(dreader["Valor"]),
                     QtdMin = Convert.ToInt32(dreader["EstoqueMinimo"]),
