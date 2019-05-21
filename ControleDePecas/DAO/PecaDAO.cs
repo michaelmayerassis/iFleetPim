@@ -56,32 +56,6 @@ namespace ControleDePecas.DAO
             return pecas;
         }
 
-        public void AlterarCadastro(decimal valor, string nome, string descricao, string prateleira, int qtdMin, int id)
-        {
-            MySqlConnection conn = new SqlConnection().Criar();
-            MySqlCommand cmd = new MySqlCommand();
-            try
-            {
-                cmd = new MySqlCommand("update Peca set Nome = ?, Descricao = ?, Prateleira = ?, Valor = ?, EstoqueMinimo = ? where Id = ?", conn);
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@Nome", nome);
-                cmd.Parameters.AddWithValue("@Descricao", descricao);
-                cmd.Parameters.AddWithValue("@Prateleira", prateleira);
-                cmd.Parameters.AddWithValue("@Valor", valor);
-                cmd.Parameters.AddWithValue("@EstoqueMinimo", qtdMin);
-                cmd.Parameters.AddWithValue("@Id", id);
-
-                cmd.CommandType = CommandType.Text;
-                cmd.ExecuteNonQuery();
-
-                conn.Close();
-            }
-            catch (Exception e)
-            {
-                throw new Exception("Erro {0}", e);
-            }
-        }
-
         public void AlterarQtd(string tipo, decimal valor, string nome)
         {
             MySqlConnection conn = new SqlConnection().Criar();
@@ -94,7 +68,7 @@ namespace ControleDePecas.DAO
                 }
                 else
                 {
-                     cmd = new MySqlCommand("update Peca set Quantidade = Quantidade+? where Nome = ?", conn);
+                     cmd = new MySqlCommand("update Peca set Quantidade = Quantidade-? where Nome = ?", conn);
                 }
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@Quantidade", valor);

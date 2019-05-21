@@ -30,7 +30,25 @@
                         BUSCAR
                     </Button>
                 </Grid>
-                <Grid Margin="60,30,60,0" x:Name="gridCadMulta">
+                <GroupBox x:Name="gbEndereco" Height="242" Margin="70,20,137,0" Header="Local" FontSize="24" BorderBrush="#FF000102" Background="#FFF0F0F0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="84*"/>
+                            <ColumnDefinition Width="528*"/>
+                            <ColumnDefinition Width="355*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="CEP:" Margin="3,27,493,105" Grid.ColumnSpan="2"/>
+                        <TextBox Margin="81,16,167,115" x:Name="txtCEP" Background="{x:Null}" Grid.ColumnSpan="2"/>
+                        <TextBox Margin="491.143,14,43,107" x:Name="txtCidade" Background="{x:Null}" Grid.ColumnSpan="2" Grid.Column="1"/>
+                        <Label Content="Cidade:" Margin="381,39,43,102" Grid.Column="1"/>
+                        <Label Content="Estado:" Margin="6,106,490,30" Grid.ColumnSpan="2"/>
+                        <TextBox Margin="25,70,342,41" x:Name="txtEstado" Background="{x:Null}" Grid.Column="1"/>
+                        <TextBox Margin="351,70,29,41" x:Name="txtEndereço" Background="{x:Null}" Grid.ColumnSpan="2" Grid.Column="1"/>
+                        <Label Content="Endereço:" Margin="218,113,183,25" Grid.Column="1"/>
+                    </Grid>
+                </GroupBox>
+                <Grid Margin="60,0,60,0" x:Name="gridCadMulta">
+
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -48,8 +66,6 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <Label Content="Endereço:" Grid.Column="0" Margin="0,6,0,10"/>
-                            <TextBox  Grid.Row="1"  Margin="0,0,80,0"></TextBox>
                         </Grid>
                     </StackPanel>
                     <StackPanel Grid.Row="0" Grid.Column="1" >
@@ -58,8 +74,6 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <Label Content="Cidade:" Grid.Column="0" Margin="0,6,0,10"/>
-                            <TextBox Grid.Row="1" Margin="0,0,80,0"></TextBox>
                         </Grid>
                     </StackPanel>
                     <StackPanel Grid.Row="2" Margin="0,0,30,30">
@@ -68,8 +82,6 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <Label Content="Estado:" Grid.Column="0" Margin="0,6,0,10"/>
-                            <TextBox Grid.Row="1"  Margin="0,0,80,0"></TextBox>
                         </Grid>
                     </StackPanel>
                     <StackPanel Grid.Row="2" Grid.Column="1" >
@@ -78,28 +90,35 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <Label Content="CEP:" Grid.Column="0" Margin="0,6,0,10"/>
-                            <TextBox Grid.Row="1"  Margin="0,0,80,0"></TextBox>
                         </Grid>
                     </StackPanel>
                     <StackPanel Grid.Row="3" Margin="0,0,30,30">
                         <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="142*"/>
+                                <ColumnDefinition Width="331*"/>
+                                <ColumnDefinition Width="33*"/>
+                            </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <Label Content="Gravidade:" Grid.Column="0" Margin="0,6,0,10"/>
-                            <DatePicker Grid.Row="1" BorderThickness="0,0,0,3" Margin="0,0,80,0" FontSize="20"></DatePicker>
+                            <Label Content="Gravidade:" Grid.Column="0" Margin="6,-45,-6,61" Grid.ColumnSpan="3"/>
+                            <TextBox x:Name="txtGravidade" Margin="20,0,0,0" Grid.ColumnSpan="3"/>
                         </Grid>
                     </StackPanel>
                     <StackPanel Grid.Row="3" Grid.Column="1" >
                         <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="52*"/>
+                                <ColumnDefinition Width="483*"/>
+                            </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <Label Content="Data:" Grid.Column="0" Margin="0,6,0,10"/>
-                            <DatePicker Grid.Row="1" BorderThickness="0,0,0,3" Margin="0,0,80,0" FontSize="20"></DatePicker>
+                            <Label Content="Data:" Grid.Column="0" Margin="6,-40,-6,56" Grid.ColumnSpan="2"/>
+                            <DatePicker x:Name="dpData" BorderThickness="0,0,0,3" Margin="9,0,68,19" FontSize="20" Height="55" Grid.ColumnSpan="2"/>
                         </Grid>
                     </StackPanel>
                     <StackPanel Grid.Column="1" Grid.Row="4">
@@ -112,7 +131,7 @@
                             <Button Grid.Column="1" Foreground="White"
                                 materialDesign:ShadowAssist.ShadowDepth="Depth2" 
                                 Margin="0,0,79,-55"
-                                BorderBrush="{x:Null}" Height="Auto">
+                                BorderBrush="{x:Null}" Height="Auto" Click="Button_Click_1">
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF4413C7" Offset="0"/>

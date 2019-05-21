@@ -34,15 +34,17 @@ namespace FrotaVeiculoPim.Views
             if ((cbNome.Text != "") && (txtQtdEstoque.Text != ""))
             {
                 PecaDAO peca = new PecaDAO();
+                EstoqueEntradaDAO estoqueEntrada = new EstoqueEntradaDAO();
                 EstoqueEntrada estoque = new EstoqueEntrada();
-                estoque.IdPeca = 1;
+                estoque.IdPeca = estoqueEntrada.RetornoID(cbNome.Text);
                 estoque.Data = DateTime.Now;
                 estoque.QtdEstoque = Convert.ToInt32(txtQtdEstoque.Text);
-                EstoqueEntradaDAO estoqueEntrada = new EstoqueEntradaDAO();
                 estoqueEntrada.CadastrarEstoque(estoque);
                 peca.AlterarQtd("soma", Convert.ToInt32(txtQtdEstoque.Text), cbNome.Text);
-                MessageBox.Show("Adicionado!!");
-            }else
+                MessageBox.Show("Adicionado(a): "+ txtQtdEstoque.Text+" !!");
+                lblEstoque.Content = ("Em estoque: " + peca.RetornoQtdEstoque("estoque", cbNome.Text));
+            }
+            else
             {
                 MessageBox.Show("Campos nulos, ou incorretos!!");
             }
@@ -53,6 +55,27 @@ namespace FrotaVeiculoPim.Views
             PecaDAO peca = new PecaDAO();
             lblEstoque.Content = ("Em estoque: " + peca.RetornoQtdEstoque("estoque", cbNome.Text));
             lblQtdMin.Content = ("Estoque minímo: " + peca.RetornoQtdEstoque("", cbNome.Text));
+        }
+
+        private void BtnRemover_Click(object sender, RoutedEventArgs e)
+        {
+            if ((cbNome.Text != "") && (txtQtdEstoque.Text != ""))
+            {
+                PecaDAO peca = new PecaDAO();
+                EstoqueEntradaDAO estoqueEntrada = new EstoqueEntradaDAO();
+                EstoqueEntrada estoque = new EstoqueEntrada();
+                estoque.IdPeca = estoqueEntrada.RetornoID(cbNome.Text);
+                estoque.Data = DateTime.Now;
+                estoque.QtdEstoque = Convert.ToInt32(txtQtdEstoque.Text);
+                estoqueEntrada.CadastrarEstoque(estoque);
+                peca.AlterarQtd("remover", Convert.ToInt32(txtQtdEstoque.Text), cbNome.Text);
+                MessageBox.Show("Removido(a): "+ txtQtdEstoque.Text+" !!");
+                lblEstoque.Content = ("Em estoque: " + peca.RetornoQtdEstoque("estoque", cbNome.Text));
+            }
+            else
+            {
+                MessageBox.Show("Campos nulos, ou incorretos!!");
+            }
         }
     }
 }

@@ -9,7 +9,7 @@
              Height="auto" Width="auto">
     <Grid Height="714" Width="1071">
         <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}" Margin="35,-177,-35,177">
-            <StackPanel Background="White" Margin="148,184,179,-234">
+            <StackPanel Background="White" Margin="-65,184,-46,-234">
 
                 <TextBlock Style="{StaticResource titulo}" Margin="10,30,34,0" ><Run Text="ADICIONAR PEÇA"/></TextBlock>
                 <Separator></Separator>
@@ -23,17 +23,27 @@
                     <ComboBox x:Name="cbNome" FontSize="36" FontFamily="IBM Plex Sans" Height="50" Margin="-136,-1,-174,0" LostFocus="CbNome_LostFocus" BorderThickness="0,0,0,3"/>
                     <Label x:Name="lblQtd" Content="Quantidade:" Padding="0"  FontSize="36" FontFamily="IBM Plex Sans" Foreground="#DD000000" Height="56" Margin="-150,10,-180,0"/>
                     <TextBox x:Name="txtQtdEstoque" Height="50"  FontSize="36" FontFamily="IBM Plex Sans" Margin="-150,10,-180,0" HorizontalAlignment="Left" Width="530"/>
-                            <Label x:Name="lblEstoque" Content="Em estoque:" Padding="0"  FontSize="36" FontFamily="IBM Plex Sans" Foreground="#DD000000" Height="56" Margin="-150,30,-180,0" />
+                    <Label x:Name="lblEstoque" Content="Em estoque:" Padding="0"  FontSize="36" FontFamily="IBM Plex Sans" Foreground="#DD000000" Height="56" Margin="-150,30,-180,0" />
                     <Label x:Name="lblQtdMin" Content="Estoque minímo de: " Padding="0"  FontSize="36" FontFamily="IBM Plex Sans" Foreground="#DD000000" Height="56" Margin="-150,30,-180,0" />
                 </StackPanel>
-                <Button x:Name="btnCadastrar" VerticalAlignment="Top" HorizontalAlignment="Right" Width="160" Margin="0,47,83,-228" Cursor="Hand" Click="BtnCadastrar_Click" Height="61">
+                <Label x:Name="lblData" Height="50"  FontSize="32" FontFamily="IBM Plex Sans" Margin="342,10,288,0"/>
+                <Button x:Name="btnRemover" VerticalAlignment="Top" HorizontalAlignment="Right" Width="140" Margin="0,10,692,-228" Cursor="Hand"  Height="50" Click="BtnRemover_Click" ToolTip="Remover">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FF4413C7" Offset="0"/>
-                            <GradientStop Color="#FF0C0C6A" Offset="0.8"/>
+                            <GradientStop Color="#FFF0573F" Offset="0"/>
+                            <GradientStop Color="#FF970707" Offset="0.8"/>
                         </LinearGradientBrush>
                     </Button.Background>
-                    <materialDesign:PackIcon Kind="Add" Height="51" Width="61" Foreground="White"/>
+                    <materialDesign:PackIcon Kind="Remove" Height="40" Width="70" Foreground="White"/>
+                </Button>
+                <Button x:Name="btnCadastrar" VerticalAlignment="Top" HorizontalAlignment="Right" Width="140" Margin="0,10,311,-228" Cursor="Hand" Click="BtnCadastrar_Click" Height="50" ToolTip="Adicionar">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFF9DD7F" Offset="0"/>
+                            <GradientStop Color="#FFB3942B" Offset="0.8"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <materialDesign:PackIcon Kind="Add" Height="40" Width="70" Foreground="White"/>
                 </Button>
 
 
@@ -43,8 +53,6 @@
                 <StackPanel Grid.Row="0" Margin="10" Width="200"/>
 
                 <StackPanel  Grid.Column="1" Grid.Row="0" Margin="10" Width="200"/>
-                <Label x:Name="lblData" Height="50"  FontSize="32" FontFamily="IBM Plex Sans" Margin="126,10,288,0">
-                </Label>
             </StackPanel>
         </materialDesign:TransitioningContent>
 

@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace ControleMulta.Models
 {
-  public  class Multa
+  public class Multa
     {
         public int Veiculoid { get; set; }
 
-        public String Local { get; set; }
+        public String Cep { get; set; }
+
+        public String Cidade { get; set; }
+
+        public String Estado { get; set; }
+
+        public String Endereco { get; set; }
 
         public String Gravidade { get; set; }
 

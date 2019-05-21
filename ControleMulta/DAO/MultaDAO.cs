@@ -14,9 +14,12 @@ namespace ControleMulta.DAO
         public void CadastrarMulta(Multa multa)
         {
             MySqlConnection conn = new SqlConnection().Criar();
-            MySqlCommand command = new MySqlCommand("INSERT INTO Multa (veiculo_Id, Local, Gravidade, Data) values (@veiculo_Id, @Local, @Gravidade, @Data)", conn);
+            MySqlCommand command = new MySqlCommand("INSERT INTO Multa (veiculo_Id, Cep, Cidade, Estado, Endereco, Gravidade , Data) values (@veiculo_Id, @Cep, @Cidade, @Estado, @Endereco, @Gravidade, @Data)", conn);
             command.Parameters.Add(new MySqlParameter("Veiculo_Id", multa.Veiculoid));
-            command.Parameters.Add(new MySqlParameter("Local", multa.Local));
+            command.Parameters.Add(new MySqlParameter("Cep", multa.Cep));
+            command.Parameters.Add(new MySqlParameter("Cidade", multa.Cidade));
+            command.Parameters.Add(new MySqlParameter("Estado", multa.Estado));
+            command.Parameters.Add(new MySqlParameter("Endereco", multa.Endereco));
             command.Parameters.Add(new MySqlParameter("Gravidade", multa.Gravidade));
             command.Parameters.Add(new MySqlParameter("Data", multa.Data));
             command.Prepare();

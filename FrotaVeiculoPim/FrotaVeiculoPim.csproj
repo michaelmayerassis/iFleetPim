@@ -41,6 +41,9 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.1.1345, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.2.5.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -70,12 +73,8 @@
     <Compile Include="Views\CadPeca.xaml.cs">
       <DependentUpon>CadPeca.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CadSeguro.cs" />
     <Compile Include="Views\Controle_Motorista.xaml.cs">
       <DependentUpon>Controle_Motorista.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ListarPeca.xaml.cs">
-      <DependentUpon>ListarPeca.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ListarVeiculo.xaml.cs">
       <DependentUpon>ListarVeiculo.xaml</DependentUpon>
@@ -117,15 +116,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ListarPeca.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\ListarVeiculo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CadSeguro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -170,17 +161,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Downloads\git-joaovizu\git-joaovizu\iFleetV2-master\iFleetV2-master\ModViagem\ModViagem.csproj">
-      <Project>{4BE8E0D1-77A4-4BAF-B761-156A52850D75}</Project>
-      <Name>ModViagem</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ControleDePecas\ControleDePecas.csproj">
       <Project>{f4e58c19-ba16-4bda-8868-d7357b4110f3}</Project>
       <Name>ControleDePecas</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ControleMulta\ControleMulta.csproj">
+      <Project>{c044a2fe-4c0c-4ba9-a340-bb45125d8610}</Project>
+      <Name>ControleMulta</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CurrencyTextBoxControl\CurrencyTextBoxControl.csproj">
       <Project>{144a2ee7-09ec-4618-ba94-6593205962c9}</Project>
       <Name>CurrencyTextBoxControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModViagem\ModViagem.csproj">
+      <Project>{4be8e0d1-77a4-4baf-b761-156a52850d75}</Project>
+      <Name>ModViagem</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
