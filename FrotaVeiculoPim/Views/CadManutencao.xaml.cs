@@ -120,5 +120,10 @@ namespace FrotaVeiculoPim.Views
             dgPeca.ItemsSource = "";
             dgPeca.ItemsSource = pecaDAO1.Pecas;
         }
+
+        private void BtnSalvarFim_Click(object sender, RoutedEventArgs e)
+        {
+            PecaDAO1 pecaDAO1 = new PecaDAO1();
+        }
     }
 }

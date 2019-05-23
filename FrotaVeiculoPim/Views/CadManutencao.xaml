@@ -242,10 +242,10 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Button Grid.Column="1" Foreground="White"
+                                    <Button x:Name="btnSalvarFim" Grid.Column="1" Foreground="White"
                                         materialDesign:ShadowAssist.ShadowDepth="Depth2" 
                                         Margin="6,159,73,-214"
-                                        BorderBrush="{x:Null}" Height="Auto" Click="Button_Click_1" Content="SALVAR">
+                                        BorderBrush="{x:Null}" Height="Auto" Content="SALVAR" Click="BtnSalvarFim_Click">
                                         <Button.Background>
                                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                                 <GradientStop Color="#FF4413C7" Offset="0"/>

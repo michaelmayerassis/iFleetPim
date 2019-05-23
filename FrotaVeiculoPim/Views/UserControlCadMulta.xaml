@@ -16,7 +16,7 @@
                 <Separator></Separator>
                 <Grid Margin="60,30,60,0">
                     <Label Content="Placa do veículo"/>
-                    <TextBox Margin="179,0,636,0"></TextBox>
+                    <TextBox x:Name="txtPlaca" Margin="179,0,636,0"></TextBox>
                     <Button Foreground="White"
                                 materialDesign:ShadowAssist.ShadowDepth="Depth2" 
                                 BorderBrush="{x:Null}" Height="Auto" Margin="459,0,455,0"
@@ -37,14 +37,14 @@
                             <ColumnDefinition Width="528*"/>
                             <ColumnDefinition Width="355*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="CEP:" Margin="3,27,493,105" Grid.ColumnSpan="2"/>
-                        <TextBox Margin="81,16,167,115" x:Name="txtCEP" Background="{x:Null}" Grid.ColumnSpan="2"/>
-                        <TextBox Margin="491.143,14,43,107" x:Name="txtCidade" Background="{x:Null}" Grid.ColumnSpan="2" Grid.Column="1"/>
-                        <Label Content="Cidade:" Margin="381,39,43,102" Grid.Column="1"/>
-                        <Label Content="Estado:" Margin="6,106,490,30" Grid.ColumnSpan="2"/>
-                        <TextBox Margin="25,70,342,41" x:Name="txtEstado" Background="{x:Null}" Grid.Column="1"/>
-                        <TextBox Margin="351,70,29,41" x:Name="txtEndereço" Background="{x:Null}" Grid.ColumnSpan="2" Grid.Column="1"/>
-                        <Label Content="Endereço:" Margin="218,113,183,25" Grid.Column="1"/>
+                        <Label Content="CEP:" Margin="3,27,526,105" Grid.ColumnSpan="2"/>
+                        <TextBox Margin="81,31,167,104" x:Name="txtCEP" Background="{x:Null}" Grid.ColumnSpan="2" FontSize="24"/>
+                        <TextBox Margin="491,31,43,104" x:Name="txtCidade" Background="{x:Null}" Grid.ColumnSpan="2" Grid.Column="1" FontSize="24"/>
+                        <Label Content="Cidade:" Margin="381,39,58,102" Grid.Column="1"/>
+                        <Label Content="Estado:" Margin="6,106,517,30" Grid.ColumnSpan="2"/>
+                        <TextBox Margin="25,97,342,39" x:Name="txtEstado" Background="{x:Null}" Grid.Column="1" FontSize="24"/>
+                        <TextBox Margin="351,97,29,39" x:Name="txtEndereço" Background="{x:Null}" Grid.ColumnSpan="2" Grid.Column="1" FontSize="24"/>
+                        <Label Content="Endereço:" Margin="218,107,198,31" Grid.Column="1"/>
                     </Grid>
                 </GroupBox>
                 <Grid Margin="60,0,60,0" x:Name="gridCadMulta">
@@ -104,7 +104,7 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <Label Content="Gravidade:" Grid.Column="0" Margin="6,-45,-6,61" Grid.ColumnSpan="3"/>
-                            <TextBox x:Name="txtGravidade" Margin="20,0,0,0" Grid.ColumnSpan="3"/>
+                            <TextBox x:Name="txtGravidade" Margin="20,0,0,15" Grid.ColumnSpan="3" FontSize="24"/>
                         </Grid>
                     </StackPanel>
                     <StackPanel Grid.Row="3" Grid.Column="1" >
@@ -118,7 +118,7 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <Label Content="Data:" Grid.Column="0" Margin="6,-40,-6,56" Grid.ColumnSpan="2"/>
-                            <DatePicker x:Name="dpData" BorderThickness="0,0,0,3" Margin="9,0,68,19" FontSize="20" Height="55" Grid.ColumnSpan="2"/>
+                            <DatePicker x:Name="dpData" BorderThickness="0,0,0,3" Margin="9,-3,68,33" FontSize="24" Height="43" Grid.ColumnSpan="2"/>
                         </Grid>
                     </StackPanel>
                     <StackPanel Grid.Column="1" Grid.Row="4">

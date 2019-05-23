@@ -38,22 +38,18 @@ namespace FrotaVeiculoPim.Views
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             MultaDAO multaDAO = new MultaDAO();
-            Multa multa = new Multa();
-            Multas();
+            Multa multa = new Multa
+            {
+                Cep = txtCEP.Text,
+                Cidade = txtCidade.Text,
+                Estado = txtEstado.Text,
+                Endereco = txtEndereço.Text,
+                Gravidade = txtGravidade.Text,
+                Data = Convert.ToDateTime(dpData.Text),
+                Veiculoid = multaDAO.RetornoID(txtPlaca.Text)
+            };
             multaDAO.CadastrarMulta(multa);
             MessageBox.Show("Cadastro efetuado");
-        }
-
-        private void Multas ()
-        {
-            Multa multa = new Multa();
-            multa.Cep = txtCEP.Text;
-            multa.Cidade = txtCidade.Text;
-            multa.Estado = txtEstado.Text;
-            multa.Endereco = txtEndereço.Text;
-            multa.Gravidade = txtGravidade.Text;
-            multa.Data = Convert.ToDateTime(dpData.Text);
-            multa.Veiculoid = 1;
         }
     }
 }

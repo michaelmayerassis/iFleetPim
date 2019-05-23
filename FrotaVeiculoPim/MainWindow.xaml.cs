@@ -52,6 +52,13 @@ namespace FrotaVeiculoPim
 
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
+                case "Principal":
+                    if (ButtonCloseMenu.Visibility == Visibility.Visible)
+                    {
+                        ButtonCloseMenu.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                    }
+                    imgFundo.Visibility = Visibility.Visible;
+                    break;
                 case "cadVeiculo":
                     usc = new UserControlCadVeiculo();
                     imgFundo.Visibility = Visibility.Collapsed;
@@ -115,6 +122,15 @@ namespace FrotaVeiculoPim
                     }
                     GridPrincipal.Children.Add(usc);
                     break;
+                case "cadMotorista":
+                    usc = new Controle_Motorista();
+                    imgFundo.Visibility = Visibility.Collapsed;
+                    if (ButtonCloseMenu.Visibility == Visibility.Visible)
+                    {
+                        ButtonCloseMenu.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                    }
+                    GridPrincipal.Children.Add(usc);
+                    break;
             }
         }
 
@@ -148,6 +164,16 @@ namespace FrotaVeiculoPim
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void CloseApplication_MouseLeave(object sender, MouseEventArgs e)
+        {
+            CloseApplication.Background = Brushes.Transparent;
+        }
+
+        private void CloseApplication_MouseEnter(object sender, MouseEventArgs e)
+        {
+            CloseApplication.Background = Brushes.Red;
         }
     }
 }

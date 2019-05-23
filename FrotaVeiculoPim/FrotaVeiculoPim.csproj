@@ -113,8 +113,8 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Controle_Motorista.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\ListarVeiculo.xaml">
       <SubType>Designer</SubType>
@@ -169,6 +169,10 @@
       <Project>{c044a2fe-4c0c-4ba9-a340-bb45125d8610}</Project>
       <Name>ControleMulta</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ControleVeiculo\ControleVeiculo.csproj">
+      <Project>{B01097B8-8A7A-4B26-B034-4C5920999A21}</Project>
+      <Name>ControleVeiculo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CurrencyTextBoxControl\CurrencyTextBoxControl.csproj">
       <Project>{144a2ee7-09ec-4618-ba94-6593205962c9}</Project>
       <Name>CurrencyTextBoxControl</Name>
@@ -183,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\inicial.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\fundo3.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

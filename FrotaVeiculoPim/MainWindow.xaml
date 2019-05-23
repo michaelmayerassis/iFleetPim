@@ -34,12 +34,12 @@
     </Window.Triggers>
 
     <Grid>
-        <Image x:Name="imgFundo" Source="images\inicial.jpg" Stretch="Fill"/>
+        <Image x:Name="imgFundo" Source="images\fundo3.jpg" Stretch="UniformToFill"/>
 
         <Grid Height="80" VerticalAlignment="Top">
             <Button x:Name="btnFecharAplicacao" VerticalAlignment="Top" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" MouseLeave="BtnFecharAplicacao_MouseLeave" MouseEnter="BtnFecharAplicacao_MouseEnter" Click="BtnFecharAplicacao_Click" materialDesign:ShadowAssist.ShadowDepth="Depth1">
                 <materialDesign:PackIcon Kind="Close"
-                                        />
+                                        Foreground="White"/>
             </Button>
         </Grid>
         <Grid x:Name="GridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center" 
@@ -58,6 +58,12 @@
                 </Grid>
 
                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListView_SelectionChanged" Height="603">
+                    <ListViewItem x:Name="Principal" Height="60" Cursor="Hand" Style="{DynamicResource ListViewItemStyle1}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Home" Height="25" Width="25" VerticalAlignment="Center" Foreground="White"/>
+                            <TextBlock Text="Tela Principal" VerticalAlignment="Center" Margin="10" Foreground="White" FontSize="18"/>
+                        </StackPanel>
+                    </ListViewItem>
                     <ListViewItem x:Name="cadVeiculo" Height="60" Cursor="Hand" Style="{DynamicResource ListViewItemStyle1}">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Car" Height="25" Width="25" VerticalAlignment="Center" Foreground="White"/>
@@ -117,7 +123,7 @@
                 
                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                           SelectionChanged="ListView_SelectionChanged_1">
-                    <ListViewItem x:Name="CloseApplication" Height="60" Cursor="Hand" Style="{DynamicResource ListViewItemStyle10}">
+                    <ListViewItem x:Name="CloseApplication" Height="60" Cursor="Hand" Style="{DynamicResource ListViewItemStyle10}" MouseLeave="CloseApplication_MouseLeave" MouseEnter="CloseApplication_MouseEnter">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Shutdown" Height="25" Width="25" VerticalAlignment="Center" Foreground="White"/>
                             <TextBlock Text="Sair" VerticalAlignment="Center" Margin="10" Foreground="White" FontSize="18"/>
