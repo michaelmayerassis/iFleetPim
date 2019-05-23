@@ -16,7 +16,6 @@ CREATE TABLE Empresa
     PRIMARY KEY(Id)
 );
 
-
 CREATE TABLE Veiculo
 (
 	Id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -29,9 +28,8 @@ CREATE TABLE Veiculo
     Placa VARCHAR(50) NOT NULL UNIQUE,
     Ano INT UNSIGNED NOT NULL,
     PRIMARY KEY(Id),
-    CONSTRAINT fk_Emp_veiculo FOREIGN KEY(Empresa_id) REFERENCES Empresa (id)
+    CONSTRAINT fk_Emp_veiculo FOREIGN KEY(Empresa_Id) REFERENCES Empresa (Id)
 );
-
 
 CREATE TABLE Seguro
 (
@@ -85,6 +83,7 @@ CREATE TABLE Viagem
 	CONSTRAINT fk_Cpf_Viagem FOREIGN KEY(Motorista_Cpf) REFERENCES Motorista (id)
 );
 
+ALTER TABLE viagem add column Situacao VARCHAR(30);
 
 select * from viagem;
 CREATE TABLE VeiculoViagem
@@ -95,21 +94,19 @@ CREATE TABLE VeiculoViagem
     CONSTRAINT fk_Via_veiculo FOREIGN KEY(Veiculo_Id) REFERENCES Veiculo (id),
 	CONSTRAINT fk_Vei_Viagem FOREIGN KEY(Viagem_Id) REFERENCES Viagem (id)
 );
-
 CREATE TABLE Multa
 (
 	Id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     Veiculo_Id INT UNSIGNED NOT NULL,
     Endereco VARCHAR(250) NOT NULL,
-    Numero INT NOT NULL,
+    Cidade varchar(250) NOT NULL,
     Estado VARCHAR(4) NOT NULL,
-    Cep VARCHAR(50) NULL,
+    Cep VARCHAR(50) NOT NULL,
     Gravidade VARCHAR(150) NOT NULL,
     Data DATE NOT NULL,
     PRIMARY KEY(Id),
-    CONSTRAINT fk_Vei_Multa FOREIGN KEY(Veiculo_id) REFERENCES Veiculo (id)
+    CONSTRAINT fk_Vei_Multa FOREIGN KEY(Veiculo_Id) REFERENCES Veiculo (Id)
 );
-
 
 CREATE TABLE Manutencao
 (
@@ -204,7 +201,3 @@ CREATE TABLE MovimentacaoPecaEntrada
     PRIMARY KEY (Id),
     CONSTRAINT fk_Pec_MovimentacaoPecaEntrada FOREIGN KEY(Peca_Id) REFERENCES Peca (id)
 );
-
-select * from MovimentacaoPecaEntrada;
-
-show tables;
