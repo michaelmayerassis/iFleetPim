@@ -37,7 +37,7 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Label Content="Nome do Motorista:" Grid.Column="0" Margin="0,6,0,10"/>
-                                    <TextBox x:Name="txtNomeMotorista" Grid.Row="1"  Margin="0,0,80,0"></TextBox>
+                                    <TextBox x:Name="txtNomeMotorista" Grid.Row="1"  Margin="0,0,46,12"></TextBox>
                                 </Grid>
                             </StackPanel>
 
@@ -60,9 +60,6 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Label Content="Realizou Exame:" Grid.Column="0" Margin="0,6,0,10"/>
-                                    <CheckBox x:Name="cbSim" Content="Sim" HorizontalAlignment="Left" Height="29" Margin="5,53,0,-27" Width="145" Grid.RowSpan="2" FontSize="16"/>
-                                    <CheckBox x:Name="cbNao" Content="Não" HorizontalAlignment="Left" Height="29" Margin="96,54,0,-28" Width="145" Grid.RowSpan="2" FontSize="16"/>
                                 </Grid>
                             </StackPanel>
 
@@ -72,8 +69,8 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Label Content="CEP:" Grid.Column="0" Margin="0,6,0,10"/>
-                                    <TextBox x:Name="txtCEP" Grid.Row="1" Margin="0,0,80,0"></TextBox>
+                                    <Label Content="CEP:" Grid.Column="0" Margin="-531,-16,531,32"/>
+                                    <TextBox x:Name="txtCEP" Margin="-531,22,611,12"/>
                                 </Grid>
                             </StackPanel>
 
@@ -105,8 +102,8 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Label Content="Cidade:" Grid.Column="0" Margin="0,6,0,10"/>
-                                    <TextBox x:Name="txtCidade" Grid.Row="1" Margin="0,0,80,0"></TextBox>
+                                    <Label Content="Cidade:" Grid.Column="0" Margin="540,-172,-540,188"/>
+                                    <TextBox x:Name="txtCidade" Margin="540,-123,-460,148"/>
                                 </Grid>
                             </StackPanel>
 
@@ -150,16 +147,19 @@
                     </StackPanel>
 
                     <StackPanel Grid.Column="1" Grid.Row="4">
-                                <Grid>
+                        <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                         </Grid>
-                            </StackPanel>
-                        </Grid>
+                        <Label Content="Realizou Exame:" Margin="0,300,535,0" Height="36"/>
+                        <CheckBox x:Name="cbSim" Content="Sim" HorizontalAlignment="Left" Height="45" Margin="0,15,0,0" Width="74" FontSize="16"/>
+                        <CheckBox x:Name="cbNao" Content="Não" HorizontalAlignment="Left" Height="44" Margin="100,-45,0,0" Width="79" FontSize="16"/>
                     </StackPanel>
-                
+                </Grid>
+            </StackPanel>
+
         </materialDesign:TransitioningContent>
     </Grid>
 </UserControl>

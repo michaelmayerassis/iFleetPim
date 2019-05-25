@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\ViagemDao.cs" />
+    <Compile Include="models\Motorista.cs" />
     <Compile Include="models\Viagem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -50,6 +51,10 @@
     <ProjectReference Include="..\ControleDePecas\ControleDePecas.csproj">
       <Project>{f4e58c19-ba16-4bda-8868-d7357b4110f3}</Project>
       <Name>ControleDePecas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControleVeiculo\ControleVeiculo.csproj">
+      <Project>{b01097b8-8a7a-4b26-b034-4c5920999a21}</Project>
+      <Name>ControleVeiculo</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

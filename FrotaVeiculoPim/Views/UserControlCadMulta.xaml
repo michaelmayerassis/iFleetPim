@@ -16,7 +16,7 @@
                 <Separator></Separator>
                 <Grid Margin="60,30,60,0">
                     <Label Content="Placa do veículo"/>
-                    <TextBox x:Name="txtPlaca" Margin="179,0,636,0"></TextBox>
+                    <ComboBox x:Name="cbPlaca" Margin="179,0,636,0" IsEditable="True"></ComboBox>
                     <Button Foreground="White"
                                 materialDesign:ShadowAssist.ShadowDepth="Depth2" 
                                 BorderBrush="{x:Null}" Height="Auto" Margin="459,0,455,0"
@@ -27,7 +27,7 @@
                                 <GradientStop Color="#FF0C0C6A" Offset="0.8"/>
                             </LinearGradientBrush>
                         </Button.Background>
-                        BUSCAR
+                        PROSSEGUIR
                     </Button>
                 </Grid>
                 <GroupBox x:Name="gbEndereco" Height="242" Margin="70,20,137,0" Header="Local" FontSize="24" BorderBrush="#FF000102" Background="#FFF0F0F0">

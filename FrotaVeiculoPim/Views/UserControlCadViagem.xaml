@@ -16,7 +16,7 @@
                 <Separator></Separator>
 
                 <Grid>
-                    <StackPanel x:Name="spInicioViagem" Margin="0,60,0,0">
+                    <StackPanel x:Name="spInicioViagem" Margin="0,60,0,0" >
                         <Button Width="400" Margin="0,0,0,30"  materialDesign:ShadowAssist.ShadowDepth="Depth2"
                                 Foreground="White" BorderBrush="{x:Null}"  Height="auto" FontSize="20px"
                                 x:Name="btnChegadaVeiculo" Click="BtnChegadaVeiculo_Click">
@@ -73,16 +73,14 @@
                     <StackPanel x:Name="spCarroSaindo" Visibility="Hidden">
                         <Grid Margin="60,30,60,0" ToolTip="Informe o CPF do motorista">
                             <Label Content="Informe o CPF do motorista:"/>
-                            <TextBox Margin="343,0,472,0" x:Name="txtCpfMotorista" TextChanged="TxtCpfMotorista_TextChanged"></TextBox>
+                            <TextBox Margin="343,0,472,0" x:Name="txtCpfMotorista" 
+                                     TextChanged="TxtCpfMotorista_TextChanged" MaxLength="11"></TextBox>
                         </Grid>
 
                         <Grid Margin="60,30,60,0" x:Name="gridVeiculo" ToolTip="Informe o veiculo">
-                            <Label Content="Informe o veículo:"/>
-                            <ComboBox Margin="344,0,471,0" FontFamily="IBM Plex Sans" FontSize="20"
-                                  x:Name="cbVeiculoMulta" SelectionChanged="CbVeiculoMulta_SelectionChanged">
-                                <ComboBoxItem>Uno</ComboBoxItem>
-                                <ComboBoxItem>HB20</ComboBoxItem>
-                            </ComboBox>
+                            <Label Content="Informe a placa do veículo:"/>
+                            <TextBox Margin="343,0,472,0" x:Name="txtPlaca" 
+                                     TextChanged="TxtCpfMotorista_TextChanged" MaxLength="8"></TextBox>
                         </Grid>
                         <Grid Margin="60,30,60,0" x:Name="gridCadViagem">
                             <Grid.ColumnDefinitions>
@@ -106,6 +104,17 @@
                                 </Grid>
                             </StackPanel>
 
+                            <StackPanel Grid.Row="0" Grid.Column="1" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Quilometros ao sair:" Grid.Column="0" Margin="0,6,0,10"/>
+                                    <TextBox x:Name="txtQuilometroSaida" x:FieldModifier="public" Grid.Row="1"  Margin="0,0,80,0"></TextBox>
+                                </Grid>
+                            </StackPanel>
+
                             <StackPanel Grid.Row="0" Grid.Column="0" >
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -113,7 +122,10 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Label Content="Data de Saída:" Grid.Column="0" Margin="0,6,0,10"/>
-                                    <DatePicker Grid.Row="1" BorderThickness="0,0,0,3" Margin="0,0,80,0" FontSize="20"></DatePicker>
+                                    <DatePicker Grid.Row="1" BorderThickness="0,0,0,3" 
+                                                Margin="0,0,80,0" FontSize="20"
+                                                x:Name="dtDataSaida"  Cursor="Hand"
+                                                SelectedDateFormat="Short"></DatePicker>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Grid.Row="4">
@@ -126,7 +138,8 @@
                                     <Button Grid.Column="1" Foreground="White"
                                         materialDesign:ShadowAssist.ShadowDepth="Depth2" 
                                         Margin="0,0,79,-55"
-                                        BorderBrush="{x:Null}" Height="Auto">
+                                        BorderBrush="{x:Null}" Height="Auto"
+                                            x:Name="btnSalvarViagem" Click="BtnSalvarViagem_Click">
                                         <Button.Background>
                                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                                 <GradientStop Color="#FF4413C7" Offset="0"/>
@@ -155,17 +168,16 @@
 
                     <StackPanel x:Name="spCarroChegando" Visibility="Hidden">
                         <Grid Margin="60,30,60,0" ToolTip="Informe o CPF do motorista">
-                            <Label Content="Informe o CPF do motorista:"/>
-                            <TextBox Margin="343,0,472,0" x:Name="txtCpfMotoristaCh" TextChanged="TxtCpfMotorista_TextChanged"></TextBox>
+                            <Label Content="Nome do motorista:"/>
+                            <TextBox Margin="343,0,472,0" x:Name="txtCpfMotoristaCh" 
+                                     TextChanged="TxtCpfMotorista_TextChanged" IsEnabled="False"></TextBox>
                         </Grid>
 
                         <Grid Margin="60,30,60,0" x:Name="gridVeiculoCh" ToolTip="Informe o veiculo">
-                            <Label Content="Informe o veículo:"/>
-                            <ComboBox Margin="344,0,471,0" FontFamily="IBM Plex Sans" FontSize="20"
-                                  x:Name="cbVeiculoMultaCh" SelectionChanged="CbVeiculoMulta_SelectionChanged">
-                                <ComboBoxItem>Uno</ComboBoxItem>
-                                <ComboBoxItem>HB20</ComboBoxItem>
-                            </ComboBox>
+                            <Label Content="Placa do veículo:"/>
+                            <TextBox Margin="343,0,472,0" x:Name="txtPlacaCh" 
+                                     TextChanged="TxtCpfMotorista_TextChanged" MaxLength="8"
+                                     IsEnabled="False"></TextBox>
                         </Grid>
                         <Grid Margin="60,30,60,0" x:Name="gridCadViagemCh">
                             <Grid.ColumnDefinitions>
@@ -185,7 +197,8 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Label Content="Local:" Grid.Column="0" Margin="0,6,0,10"/>
-                                    <TextBox x:Name="txtLocalViagemCh" x:FieldModifier="public" Grid.Row="1"  Margin="0,0,80,0"></TextBox>
+                                    <TextBox x:Name="txtLocalViagemCh" x:FieldModifier="public" Grid.Row="1" 
+                                             Margin="0,0,80,0" IsEnabled="False"></TextBox>
                                 </Grid>
                             </StackPanel>
 
@@ -196,7 +209,10 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Label Content="Data de entrada:" Grid.Column="0" Margin="0,6,0,10"/>
-                                    <DatePicker Grid.Row="1" BorderThickness="0,0,0,3" Margin="0,0,80,0" FontSize="20"></DatePicker>
+                                    <DatePicker Grid.Row="1" BorderThickness="0,0,0,3" 
+                                                Margin="0,0,80,0" FontSize="20"
+                                                x:Name="dtEntrada" Cursor="Hand"
+                                                SelectedDateFormat="Short"></DatePicker>
                                 </Grid>
                             </StackPanel>
 
@@ -207,7 +223,7 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Label Content="Quilometros ao chegar:" Grid.Column="0" Margin="0,6,0,10"/>
-                                    <TextBox x:Name="txtQuilometroSaida" x:FieldModifier="public" Grid.Row="1"  Margin="0,0,80,0"></TextBox>
+                                    <TextBox x:Name="txtQuilometroChegada" x:FieldModifier="public" Grid.Row="1"  Margin="0,0,80,0"></TextBox>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Grid.Row="4">
@@ -220,7 +236,8 @@
                                     <Button Grid.Column="1" Foreground="White"
                                         materialDesign:ShadowAssist.ShadowDepth="Depth2" 
                                         Margin="0,0,79,-55"
-                                        BorderBrush="{x:Null}" Height="Auto">
+                                        BorderBrush="{x:Null}" Height="Auto"
+                                            x:Name="btnSalvarChegando" Click="BtnSalvarChegando_Click">
                                         <Button.Background>
                                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                                 <GradientStop Color="#FF4413C7" Offset="0"/>
@@ -248,23 +265,16 @@
                     <StackPanel x:Name="spListarViagem" Margin="10,0,10,0" Visibility="Hidden">
                         <TextBlock Margin="10,0,0,10" Style="{StaticResource tituloFiltro}">FILTROS</TextBlock>
                         <Grid Margin="0,0,0,30">
-                            <ComboBox Margin="10,6,1002,7" Cursor="Hand" FontSize="16px"
-                                  x:Name="cbFiltroVeiculo" SelectionChanged="CbFiltroVeiculo_SelectionChanged">
-                                <ComboBoxItem Content="CPF"></ComboBoxItem>
-                                <ComboBoxItem Content="Placa"></ComboBoxItem>
-                            </ComboBox>
-                            <Label x:Name="lblFiltro" Margin="222,0,627,0" Content="Informe um filtro ao lado"></Label>
-                            <TextBox Margin="593,0,319,0" x:Name="txtBuscar" TextChanged="TxtBuscar_TextChanged"/>
-                            <Button Margin="899,0,116,0"
+                            <Label x:Name="lblFiltro" Margin="0,0,849,0" Content="Informe a placa do carro:"></Label>
+                            <TextBox Margin="346,0,567,0" x:Name="txtBuscar" TextChanged="TxtBuscar_TextChanged"/>
+                            <Button Margin="652,0,363,0"
                                 Background="#364EFF" Foreground="White"
                                 materialDesign:ShadowAssist.ShadowDepth="Depth2" 
                                 BorderBrush="{x:Null}" Height="Auto" x:Name="btnBuscar" Click="BtnBuscar_Click">
                                 BUSCAR
                             </Button>
                         </Grid>
-                        <DataGrid Margin="0,0,0,30" x:Name="dgViagem">
-
-                        </DataGrid>
+                        <DataGrid Margin="0,0,0,30" x:Name="dgViagem" IsReadOnly="True" MouseDoubleClick="DgViagem_MouseDoubleClick" CanUserResizeColumns="False" MinColumnWidth="100"/>
                         <Button x:Name="btnVoltar" Click="BtnVoltar_Click" Foreground="White"
                                     materialDesign:ShadowAssist.ShadowDepth="Depth2" 
                                     Margin="0,0,964,-55"

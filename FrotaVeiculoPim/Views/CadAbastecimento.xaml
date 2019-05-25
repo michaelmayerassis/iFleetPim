@@ -1,0 +1,93 @@
+﻿<UserControl
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:FrotaVeiculoPim.Views"
+        xmlns:CurrencyTextBoxControl="clr-namespace:CurrencyTextBoxControl;assembly=CurrencyTextBoxControl" x:Class="FrotaVeiculoPim.Views.CadAbastecimento"
+        mc:Ignorable="d"
+         Height="515.489" Width="754.573" >
+    <Grid Margin="0,0,2,2">
+        <StackPanel Background="White" Margin="-109,-85,-108,46">
+            <TextBlock Style="{StaticResource titulo}" Margin="0,30,0,0" ><Run Text="ABASTECIMENTO"/></TextBlock>
+            <Separator/>
+            <Grid Margin="85,30,47,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Margin="0,0,30,30">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="Placa:" Grid.Column="0" Margin="0,6,0,10"/>
+                        <ComboBox x:Name="cbPlaca" Grid.Row="1"  Margin="10,0,70,0" IsEditable="True"/>
+                    </Grid>
+                </StackPanel>
+
+                <StackPanel Grid.Row="0" Grid.Column="1" Margin="0,0,30,30">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="Quilometragem:" Grid.Column="0" Margin="10,6,-10,10"/>
+                        <TextBox x:Name="txtKM"  Grid.Row="1"  Margin="15,0,-1,0"/>
+                    </Grid>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Margin="0,0,30,30">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="Combustivel:" Grid.Column="0" Margin="0,6,0,10"/>
+                        <TextBox x:Name="txtCombustivel" Grid.Row="1"  Margin="10,0,70,0"/>
+                    </Grid>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="1" Margin="0,0,30,30">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="Quantidade:" Grid.Column="0" Margin="-58,8,278,8"/>
+                        <TextBox x:Name="txtQtd" Grid.Row="1"  Margin="-56,2,282,-2"/>
+                        <Label Content="Valor:" Grid.Column="0" Margin="132,8,88,8"/>
+                    </Grid>
+                </StackPanel>
+                <Button Grid.Row="2" Grid.Column="1" Foreground="White"
+                        Height="40" Margin="183,34,0,-34"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                        x:Name="btnSalvar" Click="BtnSalvar_Click" HorizontalAlignment="Left" Width="205" Content="SALVAR">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF4413C7" Offset="0"/>
+                            <GradientStop Color="#FF0C0C6A" Offset="0.8"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </StackPanel>
+        <CurrencyTextBoxControl:CurrencyTextBox x:Name="txtValor" materialDesign:HintAssist.Hint="Valor"  FontSize="36" FontFamily="IBM Plex Sans" Margin="534,181,-30,282">
+            <CurrencyTextBoxControl:CurrencyTextBox.BorderBrush>
+                <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                    <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                    <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                    <GradientStop Color="#FFABADB3" Offset="1"/>
+                </LinearGradientBrush>
+            </CurrencyTextBoxControl:CurrencyTextBox.BorderBrush>
+        </CurrencyTextBoxControl:CurrencyTextBox>
+    </Grid>
+</UserControl>

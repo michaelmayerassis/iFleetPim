@@ -62,5 +62,32 @@ namespace ControleMulta.DAO
             return valor;
         }
 
+        public List<object> Listarbox()
+        {
+            List<object> listabox = new List<object>();
+            MySqlConnection conn = new SqlConnection().Criar();
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT placa FROM Veiculo;", conn);
+                cmd.Prepare();
+
+                MySqlDataReader dreader = cmd.ExecuteReader();
+
+                while (dreader.Read())
+                {
+                    listabox.Add(dreader.GetString(0));
+                }
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Erro {0}", e);
+            }
+
+            return listabox;
+        }
+
     }
 }

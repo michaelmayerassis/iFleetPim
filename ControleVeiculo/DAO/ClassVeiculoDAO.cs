@@ -91,13 +91,13 @@ namespace Pim_ControleFrota.Class_DAO
             //passa a string de conexão
             MySqlConnection con = new SqlConnection().Criar();
             //abre o banco de dados
-            con.Open();
+           // con.Open();
             //Comando sql para inseri dados na tabela
-            MySqlCommand cmd = new MySqlCommand("update veiculo set nome=@nome, modelo=@modelo, placa=@placa, ano=@ano, renavan=@renavan, cor=@cor, marca=@marca where (id=@id)", con);
+            MySqlCommand cmd = new MySqlCommand("update veiculo set nome=@nome, modelo=@modelo, placa=@placa, ano=@ano, renavan=@renavan, cor=@cor, marca=@marca where Id=@Id", con);
 
             //Passar oque cada campo do banco vai receber
 
-            cmd.Parameters.AddWithValue("@id", veiculos.Codigo);
+            cmd.Parameters.AddWithValue("@Id", veiculos.Codigo);
             cmd.Parameters.AddWithValue("@nome", veiculos.Nome);
             cmd.Parameters.AddWithValue("@modelo", veiculos.Modelo);
             cmd.Parameters.AddWithValue("@placa", veiculos.Placa);

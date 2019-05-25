@@ -17,7 +17,7 @@ namespace ModuloSeguro.DAO
             MySqlConnection conn = new SqlConnection1().Criar();
             MySqlCommand command = new MySqlCommand("INSERT INTO Seguro (Seguradora, Veiculo_Id, Plano, Apolice, Validade) values (@Seguradora, @Veiculo_Id, @Plano, @Apolice, @Validade)", conn);
             command.Parameters.Add(new MySqlParameter("Seguradora", seguro.Seguradora));
-            command.Parameters.Add(new MySqlParameter("Veiculo_Ida", seguro.Veiculo_id));
+            command.Parameters.Add(new MySqlParameter("Veiculo_Id", seguro.Veiculo_id));
             command.Parameters.Add(new MySqlParameter("Plano", seguro.Plano));
             command.Parameters.Add(new MySqlParameter("Apolice", seguro.Apolice));
             command.Parameters.Add(new MySqlParameter("Validade", seguro.Validade));

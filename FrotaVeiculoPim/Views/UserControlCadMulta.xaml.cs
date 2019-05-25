@@ -27,6 +27,8 @@ namespace FrotaVeiculoPim.Views
             InitializeComponent();
             gridCadMulta.Visibility = Visibility.Collapsed;
             gbEndereco.Visibility = Visibility.Collapsed;
+            MultaDAO multaDAO = new MultaDAO();
+            cbPlaca.ItemsSource = multaDAO.Listarbox();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -46,7 +48,7 @@ namespace FrotaVeiculoPim.Views
                 Endereco = txtEndereço.Text,
                 Gravidade = txtGravidade.Text,
                 Data = Convert.ToDateTime(dpData.Text),
-                Veiculoid = multaDAO.RetornoID(txtPlaca.Text)
+                Veiculoid = multaDAO.RetornoID(cbPlaca.Text)
             };
             multaDAO.CadastrarMulta(multa);
             MessageBox.Show("Cadastro efetuado");

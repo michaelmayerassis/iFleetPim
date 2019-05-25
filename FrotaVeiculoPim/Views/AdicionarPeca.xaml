@@ -20,7 +20,7 @@
 
                 <StackPanel x:Name="panel1" Grid.Row="0" Margin="10" Width="200">
                     <Label Content="Nome da peça" Padding="0" FontSize="36" Foreground="#DD000000" Height="56" Margin="-150,30,-180,0" />
-                    <ComboBox x:Name="cbNome" FontSize="36" FontFamily="IBM Plex Sans" Height="50" Margin="-136,-1,-174,0" LostFocus="CbNome_LostFocus" BorderThickness="0,0,0,3"/>
+                    <ComboBox x:Name="cbNome" FontSize="36" FontFamily="IBM Plex Sans" Height="50" Margin="-136,-1,-174,0" LostFocus="CbNome_LostFocus" BorderThickness="0,0,0,3" IsEditable="True"/>
                     <Label x:Name="lblQtd" Content="Quantidade:" Padding="0"  FontSize="36" FontFamily="IBM Plex Sans" Foreground="#DD000000" Height="56" Margin="-150,10,-180,0"/>
                     <TextBox x:Name="txtQtdEstoque" Height="50"  FontSize="36" FontFamily="IBM Plex Sans" Margin="-150,10,-180,0" HorizontalAlignment="Left" Width="530"/>
                     <Label x:Name="lblEstoque" Content="Em estoque:" Padding="0"  FontSize="36" FontFamily="IBM Plex Sans" Foreground="#DD000000" Height="56" Margin="-150,30,-180,0" />

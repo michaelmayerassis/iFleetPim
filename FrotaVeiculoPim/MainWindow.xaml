@@ -38,7 +38,7 @@
 
         <Grid Height="80" VerticalAlignment="Top">
             <Button x:Name="btnFecharAplicacao" VerticalAlignment="Top" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" MouseLeave="BtnFecharAplicacao_MouseLeave" MouseEnter="BtnFecharAplicacao_MouseEnter" Click="BtnFecharAplicacao_Click" materialDesign:ShadowAssist.ShadowDepth="Depth1">
-                <materialDesign:PackIcon Kind="Close"
+                <materialDesign:PackIcon x:Name="fechar" Kind="Close"
                                         Foreground="White"/>
             </Button>
         </Grid>
@@ -100,8 +100,8 @@
                             <TextBlock Text="Cadastrar Viagem" VerticalAlignment="Center" Margin="10" Foreground="White" FontSize="18"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60" Cursor="Hand" Style="{DynamicResource ListViewItemStyle7}">
-                        <StackPanel x:Name="cadAbastecimento" Orientation="Horizontal">
+                    <ListViewItem x:Name="cadAbastecimento" Height="60" Cursor="Hand" Style="{DynamicResource ListViewItemStyle7}">
+                        <StackPanel  Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="LocalGasStation" Height="25" Width="25" VerticalAlignment="Center" Foreground="White"/>
                             <TextBlock Text="Abastecimento" VerticalAlignment="Center" Margin="10" Foreground="White" FontSize="18"/>
                         </StackPanel>

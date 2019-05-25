@@ -21,8 +21,11 @@ namespace Pim_ControleFrota
         public String Marca { get; set; }
         /*public DateTime dt_UltimaManutencao { get; set; }
         public String disponibilidade { get; set; }*/
-        
 
 
+        public override string ToString()
+        {
+            return Nome + " - " + Placa;
+        }
     }
 }

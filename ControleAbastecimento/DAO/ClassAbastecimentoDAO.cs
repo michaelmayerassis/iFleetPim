@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ControleDePecas.DAO;
 using MySql.Data.MySqlClient;
-using System.Data;
-using Pim_ControleFrota.Class;
 
 namespace Pim_ControleFrota.Class_DAO
 {
@@ -18,10 +14,7 @@ namespace Pim_ControleFrota.Class_DAO
         {
 
 
-            //passa a string de conexão
-            MySqlConnection con = new MySqlConnection(ClassConectionBanco.StringConexao);
-            //abre o banco de dados
-            con.Open();
+            MySqlConnection con = new SqlConnection().Criar();
             //Comando sql para inseri dados na tabela
             MySqlCommand cmd = new MySqlCommand("Insert into Abastecimento(Veiculo_Id, Combustivel, Valor, Quantidade, Km)" +
                 " values (@Veiculo_Id, @Combustivel, @Valor, @Quantidade, @Km)", con);
@@ -49,8 +42,7 @@ namespace Pim_ControleFrota.Class_DAO
 
             try
             {
-                MySqlConnection con = new MySqlConnection(ClassConectionBanco.StringConexao);
-                con.Open();
+                MySqlConnection con = new SqlConnection().Criar();
 
                 MySqlCommand cmd = new MySqlCommand("select * from veiculo", con);
                 cmd.Prepare();
@@ -80,6 +72,33 @@ namespace Pim_ControleFrota.Class_DAO
             }
 
             return listaVeiculo;
+        }
+
+        public List<object> Listarbox()
+        {
+            List<object> listabox = new List<object>();
+            MySqlConnection conn = new SqlConnection().Criar();
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT placa FROM Veiculo;", conn);
+                cmd.Prepare();
+
+                MySqlDataReader dreader = cmd.ExecuteReader();
+
+                while (dreader.Read())
+                {
+                    listabox.Add(dreader.GetString(0));
+                }
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Erro {0}", e);
+            }
+
+            return listabox;
         }
     }
 }

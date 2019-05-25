@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pim_ControleFrota;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace ModViagem.models
 {
     public class Viagem
     {
+        public int IdViagem { get; set; }
         private DateTime _dataEntrada;
         public DateTime DataEntrada
         {
@@ -22,9 +24,8 @@ namespace ModViagem.models
             }
         }
 
-        public int IdVeiculo { get; set; }
-        public String NomeVeiculo { get; set; }
-        public String PlacaVeiculo { get; set; }
+        public ClassVeiculos Veiculo { get; set; }
+        public Motorista Motorista { get; set; }
 
         public DateTime DataSaida { get; set; }
 
@@ -32,7 +33,7 @@ namespace ModViagem.models
 
         public Decimal KmEntrada { get; set; }
         public Decimal KmSaida { get; set; }
+        public String Situacao { get; set; }
 
- 
     }
 }

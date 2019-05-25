@@ -83,5 +83,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ControleDePecas\ControleDePecas.csproj">
+      <Project>{F4E58C19-BA16-4BDA-8868-D7357B4110F3}</Project>
+      <Name>ControleDePecas</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

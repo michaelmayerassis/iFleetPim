@@ -53,6 +53,7 @@ namespace FrotaVeiculoPim
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
                 case "Principal":
+                    fechar.Foreground = Brushes.White;
                     if (ButtonCloseMenu.Visibility == Visibility.Visible)
                     {
                         ButtonCloseMenu.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
@@ -61,6 +62,7 @@ namespace FrotaVeiculoPim
                     break;
                 case "cadVeiculo":
                     usc = new UserControlCadVeiculo();
+                    fechar.Foreground = Brushes.Black;
                     imgFundo.Visibility = Visibility.Collapsed;
                     if (ButtonCloseMenu.Visibility == Visibility.Visible)
                     {
@@ -70,6 +72,7 @@ namespace FrotaVeiculoPim
                     break;
                 case "cadMultas":
                     usc = new UserControlCadMulta();
+                    fechar.Foreground = Brushes.Black;
                     imgFundo.Visibility = Visibility.Collapsed;
                     if (ButtonCloseMenu.Visibility == Visibility.Visible)
                     {
@@ -79,6 +82,7 @@ namespace FrotaVeiculoPim
                     break;
                 case "cadViagem":
                     usc = new UserControlCadViagem();
+                    fechar.Foreground = Brushes.Black;
                     imgFundo.Visibility = Visibility.Collapsed;
                     if (ButtonCloseMenu.Visibility == Visibility.Visible)
                     {
@@ -88,6 +92,7 @@ namespace FrotaVeiculoPim
                     break;
                 case "cadPecas":
                     usc = new CadPeca();
+                    fechar.Foreground = Brushes.Black;
                     imgFundo.Visibility = Visibility.Collapsed;
                     if (ButtonCloseMenu.Visibility == Visibility.Visible)
                     {
@@ -97,6 +102,7 @@ namespace FrotaVeiculoPim
                     break;
                 case "cadMovimento":
                     usc = new AdicionarPeca();
+                    fechar.Foreground = Brushes.Black;
                     imgFundo.Visibility = Visibility.Collapsed;
                     if (ButtonCloseMenu.Visibility == Visibility.Visible)
                     {
@@ -106,6 +112,7 @@ namespace FrotaVeiculoPim
                     break;
                 case "cadManutencao":
                     usc = new CadManutencao();
+                    fechar.Foreground = Brushes.Black;
                     imgFundo.Visibility = Visibility.Collapsed;
                     if (ButtonCloseMenu.Visibility == Visibility.Visible)
                     {
@@ -114,7 +121,8 @@ namespace FrotaVeiculoPim
                     GridPrincipal.Children.Add(usc);
                     break;
                 case "cadSeguro":
-                   // usc = new CadSeguro();
+                    usc = new CadSeguro();
+                    fechar.Foreground = Brushes.Black;
                     imgFundo.Visibility = Visibility.Collapsed;
                     if (ButtonCloseMenu.Visibility == Visibility.Visible)
                     {
@@ -124,6 +132,17 @@ namespace FrotaVeiculoPim
                     break;
                 case "cadMotorista":
                     usc = new Controle_Motorista();
+                    fechar.Foreground = Brushes.Black;
+                    imgFundo.Visibility = Visibility.Collapsed;
+                    if (ButtonCloseMenu.Visibility == Visibility.Visible)
+                    {
+                        ButtonCloseMenu.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                    }
+                    GridPrincipal.Children.Add(usc);
+                    break;
+                case "cadAbastecimento":
+                    usc = new CadAbastecimento();
+                    fechar.Foreground = Brushes.Black;
                     imgFundo.Visibility = Visibility.Collapsed;
                     if (ButtonCloseMenu.Visibility == Visibility.Visible)
                     {

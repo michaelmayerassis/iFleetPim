@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AvalonControlsLibrary">
+      <HintPath>..\..\..\..\Downloads\AvalonControlsLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -67,17 +70,20 @@
     <Compile Include="Views\AdicionarPeca.xaml.cs">
       <DependentUpon>AdicionarPeca.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CadAbastecimento.xaml.cs">
+      <DependentUpon>CadAbastecimento.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CadManutencao.xaml.cs">
       <DependentUpon>CadManutencao.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CadPeca.xaml.cs">
       <DependentUpon>CadPeca.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CadSeguro.xaml.cs">
+      <DependentUpon>CadSeguro.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controle_Motorista.xaml.cs">
       <DependentUpon>Controle_Motorista.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ListarVeiculo.xaml.cs">
-      <DependentUpon>ListarVeiculo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControlCadMulta.xaml.cs">
       <DependentUpon>UserControlCadMulta.xaml</DependentUpon>
@@ -104,6 +110,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\CadAbastecimento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CadManutencao.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,13 +122,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\CadSeguro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Controle_Motorista.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\ListarVeiculo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControlCadMulta.xaml">
       <SubType>Designer</SubType>
@@ -161,6 +171,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ControleAbastecimento\ControleAbastecimento.csproj">
+      <Project>{B8771C6D-31D7-4F6D-81AF-F6BD4FA5B975}</Project>
+      <Name>ControleAbastecimento</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ControleDePecas\ControleDePecas.csproj">
       <Project>{f4e58c19-ba16-4bda-8868-d7357b4110f3}</Project>
       <Name>ControleDePecas</Name>
@@ -176,6 +190,10 @@
     <ProjectReference Include="..\CurrencyTextBoxControl\CurrencyTextBoxControl.csproj">
       <Project>{144a2ee7-09ec-4618-ba94-6593205962c9}</Project>
       <Name>CurrencyTextBoxControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModuloSeguro\ModuloSeguro\ModuloSeguro.csproj">
+      <Project>{0260AB9E-DA99-4A57-ABF1-D772A9F504A4}</Project>
+      <Name>ModuloSeguro</Name>
     </ProjectReference>
     <ProjectReference Include="..\ModViagem\ModViagem.csproj">
       <Project>{4be8e0d1-77a4-4baf-b761-156a52850d75}</Project>
