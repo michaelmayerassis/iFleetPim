@@ -19,7 +19,6 @@ CREATE TABLE Empresa
 CREATE TABLE Veiculo
 (
 	Id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    Empresa_Id INT UNSIGNED NOT NULL,
     Nome VARCHAR(250) NOT NULL,
     Marca VARCHAR(200) NOT NULL ,
     Modelo VARCHAR(250) NOT NULL,
@@ -27,8 +26,8 @@ CREATE TABLE Veiculo
     Renavan VARCHAR(50) NOT NULL UNIQUE,
     Placa VARCHAR(50) NOT NULL UNIQUE,
     Ano INT UNSIGNED NOT NULL,
-    PRIMARY KEY(Id),
-    CONSTRAINT fk_Emp_veiculo FOREIGN KEY(Empresa_Id) REFERENCES Empresa (Id)
+    PRIMARY KEY(Id)
+
 );
 
 CREATE TABLE Seguro
@@ -83,7 +82,6 @@ CREATE TABLE Viagem
 	CONSTRAINT fk_Cpf_Viagem FOREIGN KEY(Motorista_Cpf) REFERENCES Motorista (id)
 );
 
-ALTER TABLE viagem add column Situacao VARCHAR(30);
 
 select * from viagem;
 CREATE TABLE VeiculoViagem
@@ -129,7 +127,6 @@ CREATE TABLE VeiculoManutencao
     CONSTRAINT fk_Vei_Manu FOREIGN KEY(Manutencao_Id) REFERENCES Manutencao (id)
 );
 
-
 CREATE TABLE Peca
 (
 	Id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -137,7 +134,7 @@ CREATE TABLE Peca
     Descricao VARCHAR(250) default"null",
     Prateleira VARCHAR(250) default "null",
     Quantidade INT UNSIGNED default "0",
-    Valor DECIMAL UNSIGNED default "0.00",
+    Valor DECIMAL(9,2) UNSIGNED default "0.00",
     EstoqueMinimo INT UNSIGNED default "0",
     PRIMARY KEY(Id)
 );
@@ -201,3 +198,6 @@ CREATE TABLE MovimentacaoPecaEntrada
     PRIMARY KEY (Id),
     CONSTRAINT fk_Pec_MovimentacaoPecaEntrada FOREIGN KEY(Peca_Id) REFERENCES Peca (id)
 );
+
+use Pim;
+select * from abastecimento;
