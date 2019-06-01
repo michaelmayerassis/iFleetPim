@@ -176,8 +176,16 @@
       <Name>ControleAbastecimento</Name>
     </ProjectReference>
     <ProjectReference Include="..\ControleDePecas\ControleDePecas.csproj">
-      <Project>{f4e58c19-ba16-4bda-8868-d7357b4110f3}</Project>
+      <Project>{F4E58C19-BA16-4BDA-8868-D7357B4110F3}</Project>
       <Name>ControleDePecas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControleManutencao\ControleManutencao.csproj">
+      <Project>{1E142B5D-AEAC-4F2B-91A9-42CB21CADAFB}</Project>
+      <Name>ControleManutencao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControleMotorista\ControleMotorista.csproj">
+      <Project>{5F9779F6-4691-4769-80A0-B55AE616CC71}</Project>
+      <Name>ControleMotorista</Name>
     </ProjectReference>
     <ProjectReference Include="..\ControleMulta\ControleMulta.csproj">
       <Project>{c044a2fe-4c0c-4ba9-a340-bb45125d8610}</Project>

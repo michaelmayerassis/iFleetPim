@@ -93,6 +93,10 @@
                                     </Grid.RowDefinitions>
                                     <Label Content="Bairro:" Grid.Column="0" Margin="0,6,0,10"/>
                                     <TextBox x:Name="txtBairro" Grid.Row="1" Margin="0,0,80,0"></TextBox>
+                                    <Label Content="Data de nascimento:" Grid.Column="0" Margin="0,39,0,-48" Grid.Row="1"/>
+                                    <DatePicker x:Name="dtNascimento" Margin="6,91,80,-97" Grid.Row="1" Height="36" />
+                                    <Label Content="CPF:" Grid.Column="0" Margin="0,149,0,-158" Grid.Row="1"/>
+                                    <TextBox x:Name="txtCPF" Grid.Row="1" Margin="0,198,80,-198"/>
                                 </Grid>
                             </StackPanel>
 

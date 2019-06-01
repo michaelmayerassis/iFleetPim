@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControleMotorista.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,11 @@ namespace FrotaVeiculoPim.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Motorista motorista = new Motorista();
+            motorista.CNH = txtCNH.Text;
+            motorista.CPF = txtCPF.Text;
+            motorista.DataNasc = Convert.ToDateTime(dtNascimento.Text);
+           
 
         }
     }

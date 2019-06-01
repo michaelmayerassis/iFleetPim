@@ -7,48 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ControleDePecas.Models
+namespace ControleManutencao
 {
-    public class EstoqueSaida
+    public class ManutencaoDAO
     {
-        public DateTime Data { get; set; }
-
-        private Int32 _qtdEstoque;
-        public int QtdEstoque
+        public void CadastrarManutencao(Manutencao manutencao)
         {
-            get => _qtdEstoque;
-            set
+            MySqlConnection conn = new SqlConnection().Criar();
+            MySqlCommand command = new MySqlCommand("INSERT INTO Manutencao (Veiculo_Id, Descricao, Data, DataPrevista) values (@Veiculo_Id, @Descricao, @Data, @DataPrevista)", conn);
+            command.Parameters.Add(new MySqlParameter("Veiculo_Id", manutencao.Veiculo_Id));
+            command.Parameters.Add(new MySqlParameter("Descricao", manutencao.Descricao));
+            command.Parameters.Add(new MySqlParameter("Data", manutencao.Data));
+            command.Parameters.Add(new MySqlParameter("DataPrevista", manutencao.DataPrevista));
+            command.Prepare();
+            try
             {
-                if (isQtdValida(value))
-                    _qtdEstoque = value;
+                command.ExecuteNonQuery();
             }
-        }
-
-        private Int32 _idPeca;
-        public int IdPeca
-        {
-            get => _idPeca;
-            set
+            finally
             {
-                if (isQtdValida(value))
-                    _idPeca = value;
+                conn.Close();
             }
-        }
-
-        private Int32 _idOrdemServico;
-        public int IdOrdemServico
-        {
-            get => _idOrdemServico;
-            set
-            {
-                if (isQtdValida(value))
-                    _idOrdemServico = value;
-            }
-        }
-
-        private bool isQtdValida(int qtd)
-        {
-            return qtd >= 0;
         }
 
         public int RetornoID(string nome)
@@ -58,7 +37,7 @@ namespace ControleDePecas.Models
             int valor = 0;
             try
             {
-                cmd = new MySqlCommand("select Id from Peca where Nome = ?", conn);
+                cmd = new MySqlCommand("select Id from veiculo where placa = ?", conn);
                 cmd.Parameters.Clear();
                 cmd.Parameters.Add("@nome", MySqlDbType.VarChar, 50).Value = nome;
 
