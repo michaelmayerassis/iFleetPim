@@ -83,6 +83,11 @@ CREATE TABLE Viagem
 	CONSTRAINT fk_Cpf_Viagem FOREIGN KEY(Motorista_Cpf) REFERENCES Motorista (id)
 );
 
+<<<<<<< HEAD
+=======
+
+select * from viagem;
+>>>>>>> a70440f8868caa97a6d29e4f755ad1402553c0ca
 CREATE TABLE VeiculoViagem
 (
    Veiculo_Id INT UNSIGNED NOT NULL,
@@ -198,6 +203,7 @@ CREATE TABLE MovimentacaoPecaEntrada
     CONSTRAINT fk_Pec_MovimentacaoPecaEntrada FOREIGN KEY(Peca_Id) REFERENCES Peca (id)
 );
 
+<<<<<<< HEAD
 
 
 INSERT INTO Veiculo(Nome, Marca, Modelo, Cor, Renavan, Placa, Ano)
@@ -220,3 +226,7 @@ FROM VeiculoViagem vv
 INNER JOIN veiculo v ON vv.veiculo_id = v.id 
 INNER JOIN viagem via ON vv.viagem_id = via.id
 inner join motorista m on via.Motorista_Cpf = m.id;
+=======
+use Pim;
+select * from abastecimento;
+>>>>>>> a70440f8868caa97a6d29e4f755ad1402553c0ca
