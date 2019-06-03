@@ -73,14 +73,16 @@
                     <StackPanel x:Name="spCarroSaindo" Visibility="Hidden">
                         <Grid Margin="60,30,60,0" ToolTip="Informe o CPF do motorista">
                             <Label Content="Informe o CPF do motorista:"/>
-                            <TextBox Margin="343,0,472,0" x:Name="txtCpfMotorista" 
-                                     TextChanged="TxtCpfMotorista_TextChanged" MaxLength="11"></TextBox>
+                            <!--<TextBox Margin="343,0,472,0" x:Name="txtCpfMotorista" 
+                                     TextChanged="TxtCpfMotorista_TextChanged" MaxLength="11"></TextBox>-->
+                            <ComboBox Margin="343,0,472,0" x:Name="cbNomeMotorista" FontSize="14" FontFamily="IBM Plex Sans"></ComboBox>
                         </Grid>
 
                         <Grid Margin="60,30,60,0" x:Name="gridVeiculo" ToolTip="Informe o veiculo">
                             <Label Content="Informe a placa do veículo:"/>
-                            <TextBox Margin="343,0,472,0" x:Name="txtPlaca" 
-                                     TextChanged="TxtCpfMotorista_TextChanged" MaxLength="8"></TextBox>
+                            <!--<TextBox Margin="343,0,472,0" x:Name="txtPlaca" 
+                                     TextChanged="TxtCpfMotorista_TextChanged" MaxLength="8"></TextBox>-->
+                            <ComboBox Margin="343,0,472,0" x:Name="cbPlaca" FontSize="14" FontFamily="IBM Plex Sans"></ComboBox>
                         </Grid>
                         <Grid Margin="60,30,60,0" x:Name="gridCadViagem">
                             <Grid.ColumnDefinitions>
@@ -125,7 +127,7 @@
                                     <DatePicker Grid.Row="1" BorderThickness="0,0,0,3" 
                                                 Margin="0,0,80,0" FontSize="20"
                                                 x:Name="dtDataSaida"  Cursor="Hand"
-                                                SelectedDateFormat="Short"></DatePicker>
+                                                ></DatePicker>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Grid.Row="4">
@@ -170,13 +172,13 @@
                         <Grid Margin="60,30,60,0" ToolTip="Informe o CPF do motorista">
                             <Label Content="Nome do motorista:"/>
                             <TextBox Margin="343,0,472,0" x:Name="txtCpfMotoristaCh" 
-                                     TextChanged="TxtCpfMotorista_TextChanged" IsEnabled="False"></TextBox>
+                                      IsEnabled="False"></TextBox>
                         </Grid>
 
                         <Grid Margin="60,30,60,0" x:Name="gridVeiculoCh" ToolTip="Informe o veiculo">
                             <Label Content="Placa do veículo:"/>
                             <TextBox Margin="343,0,472,0" x:Name="txtPlacaCh" 
-                                     TextChanged="TxtCpfMotorista_TextChanged" MaxLength="8"
+                                      MaxLength="8"
                                      IsEnabled="False"></TextBox>
                         </Grid>
                         <Grid Margin="60,30,60,0" x:Name="gridCadViagemCh">
@@ -211,8 +213,7 @@
                                     <Label Content="Data de entrada:" Grid.Column="0" Margin="0,6,0,10"/>
                                     <DatePicker Grid.Row="1" BorderThickness="0,0,0,3" 
                                                 Margin="0,0,80,0" FontSize="20"
-                                                x:Name="dtEntrada" Cursor="Hand"
-                                                SelectedDateFormat="Short"></DatePicker>
+                                                x:Name="dtEntrada" Cursor="Hand"></DatePicker>
                                 </Grid>
                             </StackPanel>
 

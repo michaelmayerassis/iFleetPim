@@ -25,7 +25,7 @@ namespace Pim_ControleFrota
 
         public override string ToString()
         {
-            return Nome + " - " + Placa;
+            return  Placa;
         }
     }
 }

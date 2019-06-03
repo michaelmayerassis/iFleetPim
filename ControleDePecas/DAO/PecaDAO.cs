@@ -174,6 +174,21 @@ namespace ControleDePecas.DAO
             return pecas;
         }
 
+        public bool RetornarNomePeca(String nome)
+        {
+            //List<String> pecas = new List<String>();
+            int registroExiste = 0;
+            foreach (Peca peca in ListarPeca())
+            {
+                if (peca.Nome == nome)
+                {
+                    registroExiste = 1;
+                }
+            }
+
+            return registroExiste == 1;
+        }
+
     }
 
 }

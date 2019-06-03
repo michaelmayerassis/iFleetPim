@@ -10,32 +10,13 @@ namespace ControleDePecas.DAO
 {
     public class EstoqueSaidaDAO
     {
-        public List<EstoqueSaida> Pecas;
-
-        public EstoqueSaidaDAO()
-        {
-            Pecas = new List<EstoqueSaida>();
-        }
-
-        public void Adicionar(EstoqueSaida pecas)
-        {
-            Pecas.Add(pecas);
-        }
-
-        public List<EstoqueSaida> FindAll()
-        {
-            return Pecas;
-        }
-
         public void CadastrarEstoque(EstoqueSaida estoque)
         {
             MySqlConnection conn = new SqlConnection().Criar();
-            MySqlCommand command = new MySqlCommand(typeof(List<EstoqueSaidaDAO>).ToString());
-            command = new MySqlCommand("INSERT INTO Peca (Peca_Id, OrdemServico_Id, Data, Quantidade) values (@Peca_Id, @OrdemServico_Id, @Data, @Quantidade)", conn);
-            command.Parameters.Add(new MySqlParameter("Peca_Id", estoque.IdPeca));
-            command.Parameters.Add(new MySqlParameter("OrdemServico_Id", estoque.IdOrdemServico));
+            MySqlCommand command = new MySqlCommand("INSERT INTO Peca () values ()", conn);
             command.Parameters.Add(new MySqlParameter("Data", estoque.Data));
             command.Parameters.Add(new MySqlParameter("Quantidade", estoque.QtdEstoque));
+            command.Parameters.Add(new MySqlParameter("Quantidade", estoque.IdPeca));
             command.Prepare();
             try
             {

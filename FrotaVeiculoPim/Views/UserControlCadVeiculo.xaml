@@ -35,7 +35,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Label Content="Nome:" Grid.Column="0" Margin="0,6,0,10"/>
+                                    <Label Content="Nome do Veiculo:" Grid.Column="0" Margin="0,6,0,10"/>
                                     <TextBox x:Name="txtNomeVeiculo" Grid.Row="1"  Margin="0,0,80,0"></TextBox>
                                 </Grid>
                             </StackPanel>

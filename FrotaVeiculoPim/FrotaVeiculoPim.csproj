@@ -35,9 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AvalonControlsLibrary">
-      <HintPath>..\..\..\..\Downloads\AvalonControlsLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -176,16 +173,8 @@
       <Name>ControleAbastecimento</Name>
     </ProjectReference>
     <ProjectReference Include="..\ControleDePecas\ControleDePecas.csproj">
-      <Project>{F4E58C19-BA16-4BDA-8868-D7357B4110F3}</Project>
+      <Project>{f4e58c19-ba16-4bda-8868-d7357b4110f3}</Project>
       <Name>ControleDePecas</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ControleManutencao\ControleManutencao.csproj">
-      <Project>{1E142B5D-AEAC-4F2B-91A9-42CB21CADAFB}</Project>
-      <Name>ControleManutencao</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ControleMotorista\ControleMotorista.csproj">
-      <Project>{5F9779F6-4691-4769-80A0-B55AE616CC71}</Project>
-      <Name>ControleMotorista</Name>
     </ProjectReference>
     <ProjectReference Include="..\ControleMulta\ControleMulta.csproj">
       <Project>{c044a2fe-4c0c-4ba9-a340-bb45125d8610}</Project>
@@ -194,6 +183,10 @@
     <ProjectReference Include="..\ControleVeiculo\ControleVeiculo.csproj">
       <Project>{B01097B8-8A7A-4B26-B034-4C5920999A21}</Project>
       <Name>ControleVeiculo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControllerMotorista\ControllerMotorista.csproj">
+      <Project>{126272EA-7DC6-44BA-A727-96EA8671E9AD}</Project>
+      <Name>ControllerMotorista</Name>
     </ProjectReference>
     <ProjectReference Include="..\CurrencyTextBoxControl\CurrencyTextBoxControl.csproj">
       <Project>{144a2ee7-09ec-4618-ba94-6593205962c9}</Project>

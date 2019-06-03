@@ -69,11 +69,11 @@
                     </StackPanel>
 
                     <StackPanel x:Name="spCadManutencao" Visibility="Collapsed">
-                        <Grid Margin="60,30,60,0" >
-                            <Label Content="Placa do veiculo:" Margin="0,0,878,134"/>
-                            <ComboBox Margin="209,3,0,149" x:Name="cbPlacaManutencao" HorizontalAlignment="Left" Width="250"/>
-                            <Label x:Name="lblData" Content="Manutenção prevista para:" Margin="477,2,303,136"/>
-                            <DatePicker x:Name="dpData" VerticalAlignment="Stretch" Margin="777,-3,72,141"/>
+                        <Grid Margin="60,30,60,0" ToolTip="Informe a placa do veículo">
+                            <Label Content="Placa do veiculo:" Margin="0,0,660,0"/>
+                            <TextBox Margin="208,-3,607,3" x:Name="txtPlaca" />
+                            <Label x:Name="lblData" Content="Manutenção prevista para:" Margin="477,2,303,-2"/>
+                            <DatePicker VerticalAlignment="Stretch" Margin="777,-3,72,-1"/>
                         </Grid>
 
                         <Grid Margin="60,30,60,0" x:Name="gridVeiculo" ToolTip="Informe o veiculo"/>
@@ -120,10 +120,10 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Button x:Name="btnCadastrar" Grid.Column="1" Foreground="White"
+                                    <Button Grid.Column="1" Foreground="White"
                                         materialDesign:ShadowAssist.ShadowDepth="Depth2" 
                                         Margin="6,74,73,-129"
-                                        BorderBrush="{x:Null}" Height="Auto" Content="SALVAR" Click="BtnCadastrar_Click">
+                                        BorderBrush="{x:Null}" Height="Auto" Click="Button_Click" Content="SALVAR">
                                         <Button.Background>
                                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                                 <GradientStop Color="#FF4413C7" Offset="0"/>
@@ -150,7 +150,7 @@
 
 
                     <StackPanel x:Name="spFinalizarManutencao" Visibility="Collapsed">
-                        <Grid Margin="60,30,60,0">
+                        <Grid Margin="60,30,60,0" ToolTip="Informe a placa do veículo">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="43*"/>
                                 <ColumnDefinition Width="20*"/>
@@ -165,7 +165,7 @@
                                     <ComboBox Margin="81,-2,534,141" x:Name="cbPeca"/>
                                     <TextBox Margin="638,11,186,138" x:Name="txtQtd" Background="{x:Null}"/>
                                     <Label Content="Quantidade:" Margin="465,4,344,116"/>
-                                    <Button x:Name="btnAdicionar" HorizontalAlignment="Right" Width="55" Margin="0,8,101,137" Cursor="Hand" Click="BtnAdicionar_Click" Height="Auto">
+                                    <Button x:Name="btnAdicionar" HorizontalAlignment="Right" Width="55" Margin="0,8,101,137" Cursor="Hand" Click="BtnCadastrar_Click" Height="Auto">
                                         <Button.Background>
                                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                                 <GradientStop Color="#FFF9DD7F" Offset="0"/>

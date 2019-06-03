@@ -34,7 +34,10 @@ namespace FrotaVeiculoPim.Views
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
-           if (txtNome.Text == "")
+            if (pecaDAO.RetornarNomePeca(txtNome.Text))
+            {
+                MessageBox.Show("Essa peça já está cadastrada!");
+            }else if ((txtNome.Text == ""))
             {
                 MessageBox.Show("É obrigatório preencher o campo nome para proseguir com o cadastro!");
             }

@@ -11,7 +11,7 @@
         <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}" Margin="35,-177,-35,177">
             <StackPanel Background="White" Margin="-65,184,-46,-234">
 
-                <TextBlock Style="{StaticResource titulo}" Margin="10,30,34,0" ><Run Text="ADICIONAR PEÇA"/></TextBlock>
+                <TextBlock Style="{StaticResource titulo}" Margin="10,30,34,0" ><Run Text="ESTOQUE DE PEÇA"/></TextBlock>
                 <Separator></Separator>
 
 

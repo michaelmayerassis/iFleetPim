@@ -6,7 +6,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:FrotaVeiculoPim.Views"
              mc:Ignorable="d" 
-             Height="742" Width="1190.684">
+             Height="862" Width="1190.684">
     <Grid>
         <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.3}" Margin="1,17,-1,-17">
             <StackPanel Background="White" Margin="0,-18,0,0">
@@ -15,8 +15,7 @@
                 </TextBlock>
                 <Separator></Separator>
                 <Grid Margin="60,30,60,0">
-
-                    <StackPanel x:Name="cadVeiculo">
+                    <StackPanel x:Name="cadMotorista">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -28,141 +27,199 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
+                            <!-- Fim grid geral-->
 
-                            <StackPanel Grid.Row="0" Margin="0,0,30,30">
+                            <StackPanel Margin="0,0,30,30">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Label Content="Nome do Motorista:" Grid.Column="0" Margin="0,6,0,10"/>
-                                    <TextBox x:Name="txtNomeMotorista" Grid.Row="1"  Margin="0,0,46,12"></TextBox>
+                                    <Label Content="Nome do Motorista:"/>
+                                    <TextBox x:Name="txtNome" Grid.Row="1"/>
                                 </Grid>
                             </StackPanel>
 
-
-                            <StackPanel Grid.Row="0" Grid.Column="1" >
+                            <StackPanel Grid.Column="1">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Label Content="CNH:" Grid.Column="0" Margin="0,6,0,10"/>
-                                    <TextBox x:Name="txtCNH" Grid.Row="1" Margin="0,0,80,0"></TextBox>
+                                    <Label Content="CPF:"/>
+                                    <TextBox x:Name="txtCpf" Grid.Row="1" MaxLength="11"/>
                                 </Grid>
                             </StackPanel>
 
-
-                            <StackPanel Grid.Row="2" Grid.Column="0" >
+                            <StackPanel Grid.Row="1" Margin="0,0,30,30">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
+                                    <Label Content="CNH:"/>
+                                    <TextBox x:Name="txtCnh" Grid.Row="1"/>
                                 </Grid>
                             </StackPanel>
 
-                            <StackPanel Grid.Row="2" Grid.Column="1" >
+                            <StackPanel Grid.Row="1" Grid.Column="1">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Label Content="CEP:" Grid.Column="0" Margin="-531,-16,531,32"/>
-                                    <TextBox x:Name="txtCEP" Margin="-531,22,611,12"/>
+                                    <Label Content="Categoria da CNH:"/>
+                                    <TextBox x:Name="txtCatCnh" Grid.Row="1" MaxLength="3"/>
                                 </Grid>
                             </StackPanel>
 
-                            <StackPanel Grid.Row="3" Grid.Column="0" >
+                            <StackPanel Grid.Row="2" Margin="0,0,30,30">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Label Content="Endereço:" Grid.Column="0" Margin="0,6,0,10"/>
-                                    <TextBox x:Name="txtEndereco" Grid.Row="1" Margin="0,0,80,0"></TextBox>
+                                    <Label Content="Realizou exame?"/>
+                                    <RadioButton GroupName="Exame" Grid.Row="1" x:Name="rbSim" FontFamily="IBM Plex Sans" FontSize="18" Background="Blue" Cursor="Hand">Sim</RadioButton>
+                                    <RadioButton GroupName="Exame" x:Name="rbNao" Grid.Row="1" Margin="110,0,0,0" FontFamily="IBM Plex Sans" FontSize="18" Background="Blue" Cursor="Hand">Nao</RadioButton>
                                 </Grid>
                             </StackPanel>
 
-                            <StackPanel Grid.Row="3" Grid.Column="1" >
+                            <StackPanel Grid.Row="2" Grid.Column="1">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Label Content="Bairro:" Grid.Column="0" Margin="0,6,0,10"/>
-                                    <TextBox x:Name="txtBairro" Grid.Row="1" Margin="0,0,80,0"></TextBox>
-                                    <Label Content="Data de nascimento:" Grid.Column="0" Margin="0,39,0,-48" Grid.Row="1"/>
-                                    <DatePicker x:Name="dtNascimento" Margin="6,91,80,-97" Grid.Row="1" Height="36" />
-                                    <Label Content="CPF:" Grid.Column="0" Margin="0,149,0,-158" Grid.Row="1"/>
-                                    <TextBox x:Name="txtCPF" Grid.Row="1" Margin="0,198,80,-198"/>
+                                    <Label Content="E-mail"/>
+                                    <TextBox x:Name="txtEmail" Grid.Row="1"/>
                                 </Grid>
                             </StackPanel>
 
-                            <StackPanel Grid.Row="4" Grid.Column="0" >
+                            <StackPanel Grid.Row="3" Margin="0,0,30,30">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Label Content="Cidade:" Grid.Column="0" Margin="540,-172,-540,188"/>
-                                    <TextBox x:Name="txtCidade" Margin="540,-123,-460,148"/>
+                                    <Label Content="Rua:"/>
+                                    <TextBox x:Name="txtRua" Grid.Row="1"/>
                                 </Grid>
                             </StackPanel>
 
-                            <StackPanel Grid.Column="1" Grid.Row="4">
+                            <StackPanel Grid.Row="3" Grid.Column="1">
                                 <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Bairro:"/>
+                                    <TextBox x:Name="txtBairro" Grid.Row="1"/>
+                                </Grid>
+                            </StackPanel>
 
-                                    <Button Grid.Column="1" Foreground="White"
+                            <StackPanel Grid.Row="4" Margin="0,0,30,30">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Cidade:"/>
+                                    <TextBox x:Name="txtCidade" Grid.Row="1"/>
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="5" Margin="0,0,30,30">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Cep:"/>
+                                    <TextBox x:Name="txtCep" Grid.Row="1"/>
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="4" Grid.Column="1" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Numero:"/>
+                                    <TextBox x:Name="txtNumero" Grid.Row="1"/>
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="5" Grid.Column="1">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Data de nascimento:"/>
+                                    <DatePicker Grid.Row="1" x:Name="dtDataNasc" BorderThickness="0,0,0,3" FontSize="20" Margin="0,0,25,0"/>
+                                </Grid>
+                            </StackPanel>
+
+
+                            <Button x:Name="btnSalvar" Foreground="White"
                                     materialDesign:ShadowAssist.ShadowDepth="Depth2" 
-                                    Margin="70,258,9,-313"
-                                    BorderBrush="{x:Null}" Height="Auto" Click="Button_Click">
-                                        <Button.Background>
-                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                                <GradientStop Color="#FF4413C7" Offset="0"/>
-                                                <GradientStop Color="#FF0C0C6A" Offset="0.799"/>
-                                            </LinearGradientBrush>
-                                        </Button.Background>
-                                        SALVAR
-                                    </Button>
-
-                                    <Button Grid.Column="0" Foreground="White"
+                                    Margin="332,120,23,-63" Grid.Column="1" Grid.Row="5"
+                                    BorderBrush="{x:Null}" Height="Auto" Click="BtnSalvar_Click" Content="SALVAR">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF4413C7" Offset="0"/>
+                                        <GradientStop Color="#FF0C0C6A" Offset="0.799"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                            <Button Foreground="White"
                                     materialDesign:ShadowAssist.ShadowDepth="Depth2" 
-                                    Margin="54,255,25,-310"
+                                    Margin="103,120,252,-63" Grid.Column="1" Grid.Row="5"
                                     BorderBrush="{x:Null}" Height="Auto"
-                                        x:Name="btnListaMotorista">
-                                        <Button.Background>
-                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                                <GradientStop Color="#FF52E6FD" Offset="0"/>
-                                                <GradientStop Color="#FF3157FF" Offset="0.799"/>
-                                            </LinearGradientBrush>
-                                        </Button.Background>
-                                        LISTAR MOTORISTA
-                                    </Button>
-                                </Grid>
-                            </StackPanel>
+                                        x:Name="btnListaMotorista" Click="BtnListaMotorista_Click" Content="LISTAR MOTORISTAS">
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF52E6FD" Offset="0"/>
+                                        <GradientStop Color="#FF3157FF" Offset="0.799"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
 
                         </Grid>
                     </StackPanel>
 
-                    <StackPanel Grid.Column="1" Grid.Row="4">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
+                    <StackPanel x:Name="spListaMotorista" Visibility="Hidden">
+                        <TextBlock Margin="10,0,0,10" Style="{StaticResource tituloFiltro}">FILTROS</TextBlock>
+                        <Grid Margin="0,0,0,30">
+                            <Label x:Name="lblFiltro" Margin="0,0,722,0" Content="Informe o nome do motorista:"></Label>
+                            <TextBox Margin="402,0,369,0" x:Name="txtBuscar" TextChanged="TxtBuscar_TextChanged"/>
+                            <Button Margin="790,0,101,0"
+                                Background="#364EFF" Foreground="White"
+                                materialDesign:ShadowAssist.ShadowDepth="Depth2" 
+                                BorderBrush="{x:Null}" Height="Auto" x:Name="btnBuscar" Click="BtnBuscar_Click">
+                                BUSCAR
+                            </Button>
                         </Grid>
-                        <Label Content="Realizou Exame:" Margin="0,300,535,0" Height="36"/>
-                        <CheckBox x:Name="cbSim" Content="Sim" HorizontalAlignment="Left" Height="45" Margin="0,15,0,0" Width="74" FontSize="16"/>
-                        <CheckBox x:Name="cbNao" Content="Não" HorizontalAlignment="Left" Height="44" Margin="100,-45,0,0" Width="79" FontSize="16"/>
+                        <DataGrid Margin="0,0,0,30" x:Name="dgMotorista" IsReadOnly="True" MouseDoubleClick="DgMotorista_MouseDoubleClick" CanUserResizeColumns="False" MinColumnWidth="100"/>
+                        <Button x:Name="btnVoltar"  Foreground="White"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth2" 
+                                    Margin="0,0,964,-55" Click="BtnVoltar_Click"
+                                    BorderBrush="{x:Null}" Height="Auto" Content="VOLTAR">
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF4413C7" Offset="0"/>
+                                    <GradientStop Color="#FF0C0C6A" Offset="0.799"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
                     </StackPanel>
                 </Grid>
             </StackPanel>
+
 
         </materialDesign:TransitioningContent>
     </Grid>

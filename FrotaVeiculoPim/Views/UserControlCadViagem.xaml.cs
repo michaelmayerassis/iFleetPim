@@ -1,5 +1,8 @@
-﻿using ModViagem.DAO;
+﻿using ControllerMotorista.models;
+using ControllerMotorista.dao;
+using ModViagem.DAO;
 using ModViagem.models;
+using Pim_ControleFrota.Class_DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 //using ModViagem.DAO;
 //using ModViagem.models;
 
@@ -27,23 +31,20 @@ namespace FrotaVeiculoPim.Views
         static int IdViagem;
         private String titulo = "Viagens".ToUpper();
         private String tituloChegando = "Entrada de veículo".ToUpper();
-        private String tituloSaindo = "Saida de veículo".ToUpper();
+        private String tituloSaindo = "Saida de veículo rsrsr".ToUpper();
         private String tituloListagem = "Veículos em viagem".ToUpper();
+        ClassVeiculoDAO veiculoDao;
+        MotoristaDao motoristaDao;
         public UserControlCadViagem()
         {
             InitializeComponent();
-
+            veiculoDao = new ClassVeiculoDAO();
+            motoristaDao = new MotoristaDao();
+            cbPlaca.ItemsSource = veiculoDao.ListarVeiculo();
+            cbNomeMotorista.ItemsSource = motoristaDao.ListarMotorista();
+           
         }
 
-        private void TxtCpfMotorista_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            /*int tamanho = txtCpfMotorista.Text.Length;
-
-            if(tamanho == 11)
-            {
-                gridVeiculo.Visibility = Visibility.Visible;
-            }*/
-        }
 
         private void CbVeiculoMulta_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -64,7 +65,9 @@ namespace FrotaVeiculoPim.Views
             tbTitulo.Text = tituloSaindo;
             spInicioViagem.Visibility = Visibility.Hidden;
             spCarroSaindo.Visibility = Visibility.Visible;
+            
             dtDataSaida.DisplayDate = DateTime.Now;
+           
         }
 
         private void BtnConsultarViagem_Click(object sender, RoutedEventArgs e)
@@ -121,37 +124,40 @@ namespace FrotaVeiculoPim.Views
             else
             {
                 ViagemDao viagemDao = new ViagemDao();
-                int idMotorista = viagemDao.PegarIdMotorista(txtCpfMotorista.Text);
+                int idMotorista = viagemDao.PegarIdMotorista(cbNomeMotorista.Text);
                 if (idMotorista < 0 || idMotorista == 0)
                 {
                     MessageBox.Show("Motorista não encontrado no sistema, tente novamente!", "Aviso", MessageBoxButton.OK);
                 }
                 else
                 {
-                    Viagem viagem = new Viagem()
+                    if (viagemDao.RetornarPlacasEmViagem(cbPlaca.Text))
                     {
-                        DataSaida = dtDataSaida.SelectedDate.Value,
-                        KmSaida = Convert.ToDecimal(txtQuilometroSaida.Text),
-                        Local = txtLocalViagem.Text,
-                        Situacao = "Em viagem"
-                    };
-                    viagem.Motorista = new Motorista();
-                    viagem.Motorista.IdMotorista = idMotorista;
+                        MessageBox.Show("O carro ja esta em viagem!");
+                    }
+                    else
+                    {
+                        Viagem viagem = new Viagem()
+                        {
+                            DataSaida = dtDataSaida.SelectedDate.Value,
+                            KmSaida = Convert.ToDecimal(txtQuilometroSaida.Text),
+                            Local = txtLocalViagem.Text,
+                            Situacao = "Em viagem"
+                        };
+                        viagem.Motorista = new Motorista();
+                        viagem.Motorista.IdMotorista = idMotorista;
 
 
-                    viagemDao.InserirViagem(viagem);
-                    viagemDao.InserirViagemVeiculo(txtPlaca.Text);
-                    MessageBox.Show("Viagem cadastrada com sucesso!", "", MessageBoxButton.OK);
-                    LimparCampos();
-                    spCarroSaindo.Visibility = Visibility.Hidden;
-                    spListarViagem.Visibility = Visibility.Visible;
-                    AtualizarGrid();
-
+                        viagemDao.InserirViagem(viagem);
+                        viagemDao.InserirViagemVeiculo(cbPlaca.Text);
+                        MessageBox.Show("Viagem cadastrada com sucesso!", "", MessageBoxButton.OK);
+                        LimparCampos();
+                        spCarroSaindo.Visibility = Visibility.Hidden;
+                        spListarViagem.Visibility = Visibility.Visible;
+                        AtualizarGrid();
+                    }
                 }
             }
-
-
-
         }
 
         private void BtnSalvarChegando_Click(object sender, RoutedEventArgs e)
@@ -165,7 +171,7 @@ namespace FrotaVeiculoPim.Views
                 Viagem viagem = new Viagem()
                 {
 
-                    DataEntrada = dtEntrada.SelectedDate.Value,
+                    DataEntrada = DateTime.Now,
                     KmEntrada = Convert.ToDecimal(txtQuilometroChegada.Text),
                     Situacao = "Disponível",
                     IdViagem = IdViagem,
@@ -196,19 +202,19 @@ namespace FrotaVeiculoPim.Views
             txtPlacaCh.Text = viagem.Veiculo.Placa;
             txtLocalViagemCh.Text = viagem.Local;
             txtQuilometroChegada.Text = viagem.KmEntrada.ToString();
-            dtEntrada.DisplayDate = viagem.DataEntrada;
+            dtEntrada.DisplayDate = DateTime.Now;
             IdViagem = viagem.IdViagem;
         }
 
         private void LimparCampos()
         {
-            txtCpfMotorista.Clear();
+           
             txtCpfMotoristaCh.Clear();
             txtLocalViagem.Clear();
             txtLocalViagemCh.Clear();
             txtQuilometroChegada.Clear();
             txtQuilometroSaida.Clear();
-            txtPlaca.Clear();
+            //cbPlaca.Clear();
             txtPlacaCh.Clear();
             dtDataSaida.DisplayDate = DateTime.Now;
             dtEntrada.DisplayDate = DateTime.Now;
@@ -218,7 +224,7 @@ namespace FrotaVeiculoPim.Views
         //SOMENTE PARA A FUNCIONALIDE DO CARRO ESTAR SAINDO DA EMPRESA
         private bool VerificarCamposNulos()
         {
-            if (txtCpfMotorista.Text == "" || txtLocalViagem.Text == "" || txtQuilometroSaida.Text == "" || txtPlaca.Text == "")
+            if (cbNomeMotorista.Text == "" || txtLocalViagem.Text == "" || txtQuilometroSaida.Text == "" || cbPlaca.Text == "")
             {
                 return true;
             }

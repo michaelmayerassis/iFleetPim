@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4BE8E0D1-77A4-4BAF-B761-156A52850D75}</ProjectGuid>
+    <ProjectGuid>{126272EA-7DC6-44BA-A727-96EA8671E9AD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ModViagem</RootNamespace>
-    <AssemblyName>ModViagem</AssemblyName>
+    <RootNamespace>ControllerMotorista</RootNamespace>
+    <AssemblyName>ControllerMotorista</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -34,6 +34,7 @@
     <Reference Include="MySql.Data, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,22 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\ViagemDao.cs" />
-    <Compile Include="models\Viagem.cs" />
+    <Compile Include="dao\MotoristaDao.cs" />
+    <Compile Include="models\Endereco.cs" />
+    <Compile Include="models\Motorista.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ControleDePecas\ControleDePecas.csproj">
       <Project>{f4e58c19-ba16-4bda-8868-d7357b4110f3}</Project>
       <Name>ControleDePecas</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ControleVeiculo\ControleVeiculo.csproj">
-      <Project>{b01097b8-8a7a-4b26-b034-4c5920999a21}</Project>
-      <Name>ControleVeiculo</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ControllerMotorista\ControllerMotorista.csproj">
-      <Project>{126272ea-7dc6-44ba-a727-96ea8671e9ad}</Project>
-      <Name>ControllerMotorista</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

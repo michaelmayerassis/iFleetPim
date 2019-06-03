@@ -7,6 +7,7 @@ using ModViagem.models;
 using MySql.Data.MySqlClient;
 using ControleDePecas.DAO;
 using Pim_ControleFrota;
+using ControllerMotorista.models;
 
 namespace ModViagem.DAO
 {
@@ -57,13 +58,13 @@ namespace ModViagem.DAO
             return idVeiculo;
         }
 
-        public int PegarIdMotorista(String cpf)
+        public int PegarIdMotorista(String nome)
         {
             int idMotorista = 0;
-            String query = "select id from motorista where cpf like @cpf";
+            String query = "select id from motorista where nome like @nome";
             MySqlConnection conn = new SqlConnection().Criar();
             MySqlCommand cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("cpf", cpf);
+            cmd.Parameters.AddWithValue("nome", nome);
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -71,6 +72,8 @@ namespace ModViagem.DAO
             }
             return idMotorista;
         }
+
+     
 
         public void InserirViagemVeiculo(string placa)
         {
@@ -111,7 +114,8 @@ namespace ModViagem.DAO
         {
             List<Viagem> viagens = new List<Viagem>();
             String query = "SELECT v.Id as IdVeiculo,v.Nome as Nome, v.Placa as Placa , via.id as idViagem, via.situacao as Situacao,via.Local as Local, via.Km_Entrada as KmEntrada,via.Dt_Entrada as DataEntrada, via.Dt_Saida as DataSaida,via.Km_Saida as KmSaida, m.Nome as `Nome Motorista`" +
-                "FROM VeiculoViagem vv INNER JOIN veiculo v ON vv.veiculo_id = v.id INNER JOIN viagem via ON vv.viagem_id = via.id inner join motorista m on via.Motorista_Cpf = m.id;";
+                "FROM VeiculoViagem vv INNER JOIN veiculo v ON vv.veiculo_id = v.id INNER JOIN viagem via ON vv.viagem_id = via.id inner join motorista m on via.Motorista_Cpf = m.id " +
+                "where via.situacao = 'Em viagem';";
 
             MySqlConnection conn = new SqlConnection().Criar();
             MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -132,7 +136,8 @@ namespace ModViagem.DAO
         {
             List<Viagem> viagens = new List<Viagem>();
             String query = "SELECT v.Id as IdVeiculo,v.Nome as Nome, v.Placa as Placa , via.id as idViagem, via.situacao as Situacao,via.Local as Local, via.Km_Entrada as KmEntrada, via.Dt_Entrada as DataEntrada, via.Dt_Saida as DataSaida,via.Km_Saida as KmSaida,m.Nome as `Nome Motorista` " +
-                "FROM VeiculoViagem vv INNER JOIN veiculo v ON vv.veiculo_id = v.id INNER JOIN viagem via ON vv.viagem_id = via.id inner join motorista m on via.Motorista_Cpf = m.id where v.Placa LIKE @placa; ";
+                "FROM VeiculoViagem vv INNER JOIN veiculo v ON vv.veiculo_id = v.id INNER JOIN viagem via ON vv.viagem_id = via.id inner join motorista m on via.Motorista_Cpf = m.id where v.Placa LIKE @placa " +
+                "and via.situacao = 'Em viagem'; ";
 
             MySqlConnection conn = new SqlConnection().Criar();
             MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -199,6 +204,22 @@ namespace ModViagem.DAO
                 viagens.Add(v);
             }
             return viagens;
+        }
+
+        
+
+        public bool RetornarPlacasEmViagem(String placa) {
+            List<String> placas = new List<String>();
+            int registroExiste = 0;
+            foreach(Viagem viagem in ListarTodasViagens())
+            {
+                if (viagem.Veiculo.Placa == placa)
+                {
+                    registroExiste = 1;
+                }
+            }
+
+            return registroExiste == 1;
         }
     }
 }

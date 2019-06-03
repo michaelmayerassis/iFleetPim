@@ -1,4 +1,5 @@
-﻿using Pim_ControleFrota;
+﻿using ControllerMotorista.models;
+using Pim_ControleFrota;
 using System;
 using System.Collections.Generic;
 using System.Linq;
