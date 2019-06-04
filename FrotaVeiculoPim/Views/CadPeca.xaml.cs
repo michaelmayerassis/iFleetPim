@@ -120,7 +120,7 @@ namespace FrotaVeiculoPim.Views
         private void BtnListarPeca_Click(object sender, RoutedEventArgs e)
         {
             cadPeca.Visibility = Visibility.Collapsed;
-            dgListar.Visibility = Visibility.Visible;
+            spListar.Visibility = Visibility.Visible;
             txtTitulo.Text = "LISTAR PEÇAS";
             btnVoltar.Visibility = Visibility.Visible;
             dgListar.ItemsSource = pecaDAO.ListarPeca();
@@ -161,7 +161,7 @@ namespace FrotaVeiculoPim.Views
 
         private void DgListar_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            dgListar.Visibility = Visibility.Collapsed;
+            spListar.Visibility = Visibility.Collapsed;
             cadPeca.Visibility = Visibility.Visible;
             btnVoltar.Visibility = Visibility.Collapsed;
             btnCadastrar.Visibility = Visibility.Collapsed;
@@ -215,6 +215,16 @@ namespace FrotaVeiculoPim.Views
             dgListar.Columns[4].Width = 200;
             dgListar.Columns[5].Width = 200;
             dgListar.Columns[6].Width = 200;
+        }
+
+        private void TxtBuscar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            dgListar.ItemsSource = pecaDAO.BuscarPeca("%" + txtBuscar.Text + "%");
+        }
+
+        private void BtnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            dgListar.ItemsSource = pecaDAO.BuscarPeca("%" + txtBuscar.Text + "%");
         }
     }
 }

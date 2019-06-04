@@ -176,6 +176,10 @@
       <Project>{f4e58c19-ba16-4bda-8868-d7357b4110f3}</Project>
       <Name>ControleDePecas</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ControleManutencao\ControleManutencao.csproj">
+      <Project>{1E142B5D-AEAC-4F2B-91A9-42CB21CADAFB}</Project>
+      <Name>ControleManutencao</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ControleMulta\ControleMulta.csproj">
       <Project>{c044a2fe-4c0c-4ba9-a340-bb45125d8610}</Project>
       <Name>ControleMulta</Name>

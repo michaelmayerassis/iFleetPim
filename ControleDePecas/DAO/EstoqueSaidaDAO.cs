@@ -13,10 +13,11 @@ namespace ControleDePecas.DAO
         public void CadastrarEstoque(EstoqueSaida estoque)
         {
             MySqlConnection conn = new SqlConnection().Criar();
-            MySqlCommand command = new MySqlCommand("INSERT INTO Peca () values ()", conn);
+            MySqlCommand command = new MySqlCommand("INSERT INTO MovimentacaoPecaSaida (Peca_Id, OrdemServico_Id, Data, Quantidade) values (@Peca_Id, @OrdemServico_Id, @Data, @Quantidade)", conn);
+            command.Parameters.Add(new MySqlParameter("Peca_Id", estoque.IdPeca));
+            command.Parameters.Add(new MySqlParameter("OrdemServico_Id", estoque.IdOrdemServico));
             command.Parameters.Add(new MySqlParameter("Data", estoque.Data));
             command.Parameters.Add(new MySqlParameter("Quantidade", estoque.QtdEstoque));
-            command.Parameters.Add(new MySqlParameter("Quantidade", estoque.IdPeca));
             command.Prepare();
             try
             {

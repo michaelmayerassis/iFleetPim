@@ -176,7 +176,6 @@ namespace ControleDePecas.DAO
 
         public bool RetornarNomePeca(String nome)
         {
-            //List<String> pecas = new List<String>();
             int registroExiste = 0;
             foreach (Peca peca in ListarPeca())
             {
@@ -187,6 +186,26 @@ namespace ControleDePecas.DAO
             }
 
             return registroExiste == 1;
+        }
+
+        public List<Peca> BuscarPeca(String nome)
+        {
+            List<Peca> peca = new List<Peca>();
+            String query = "select * from Peca where Nome LIKE @Nome;";
+
+            MySqlConnection conn = new SqlConnection().Criar();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("Nome", nome);
+            try
+            {
+                MySqlDataReader dr = cmd.ExecuteReader();
+                peca = convertDataReaderToList(dr);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return peca;
         }
 
     }

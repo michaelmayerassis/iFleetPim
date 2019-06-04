@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Manutencao.cs" />
-    <Compile Include="ManutencaoDAO.cs" />
+    <Compile Include="DAO\FinalizarManutencaoDAO.cs" />
+    <Compile Include="Models\FinalizarManutencao.cs" />
+    <Compile Include="Models\Manutencao.cs" />
+    <Compile Include="DAO\ManutencaoDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
