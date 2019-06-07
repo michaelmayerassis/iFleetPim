@@ -150,7 +150,7 @@
 
 
                     <StackPanel x:Name="spFinalizarManutencao" Visibility="Collapsed">
-                        <Grid Margin="60,30,60,0" ToolTip="Informe a placa do veículo">
+                        <Grid Margin="60,30,60,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="43*"/>
                                 <ColumnDefinition Width="20*"/>
@@ -271,21 +271,18 @@
                     </StackPanel>
 
                     <StackPanel x:Name="spListarVeiculos" Margin="10,0,10,0" Visibility="Hidden">
-                        <TextBlock Margin="10,0,0,10" Style="{StaticResource tituloFiltro}"><Run Text="FILTROS"/></TextBlock>
+                        <TextBlock Margin="10,0,0,10" Style="{StaticResource tituloFiltro}">FILTROS</TextBlock>
                         <Grid Margin="0,0,0,30">
-                            <ComboBox Margin="10,6,1002,7" Cursor="Hand" FontSize="16px"
-                                  x:Name="cbFiltroVeiculo">
-                                <ComboBoxItem Content="CPF"/>
-                                <ComboBoxItem Content="Placa"/>
-                            </ComboBox>
-                            <Label x:Name="lblFiltro" Margin="222,0,627,0" Content="Informe um filtro ao lado"/>
-                            <TextBox Margin="593,0,319,0" x:Name="txtBuscar" />
-                            <Button Margin="899,0,116,0"
+                            <Label x:Name="lblFiltro" Margin="0,0,849,0" Content="Informe a placa do carro:"></Label>
+                            <TextBox Margin="346,0,567,0" x:Name="txtBuscar" TextChanged="TxtBuscar_TextChanged"/>
+                            <Button Margin="652,0,363,0"
                                 Background="#364EFF" Foreground="White"
                                 materialDesign:ShadowAssist.ShadowDepth="Depth2" 
-                                BorderBrush="{x:Null}" Height="Auto" x:Name="btnBuscar" Content="BUSCAR" />
+                                BorderBrush="{x:Null}" Height="Auto" x:Name="btnBuscar">
+                                BUSCAR
+                            </Button>
                         </Grid>
-                        <DataGrid Margin="0,0,0,30" x:Name="dgViagem"/>
+                        <DataGrid Margin="0,0,0,30" x:Name="dgVeiculo" IsReadOnly="True" MouseDoubleClick="DgVeiculo_MouseDoubleClick" CanUserResizeColumns="False" MinColumnWidth="100"/>
                         <Button x:Name="btnVoltar" Click="BtnVoltar_Click" Foreground="White"
                                     materialDesign:ShadowAssist.ShadowDepth="Depth2" 
                                     Margin="0,0,964,-55"

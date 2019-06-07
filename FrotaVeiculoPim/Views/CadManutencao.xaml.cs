@@ -4,6 +4,7 @@ using ControleManutencao;
 using ControleManutencao.DAO;
 using ControleManutencao.Models;
 using ControleMulta.DAO;
+using Pim_ControleFrota;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -26,6 +27,7 @@ namespace FrotaVeiculoPim.Views
     /// </summary>
     public partial class CadManutencao //: UserControl
     {
+        static int IdManutencao;
         private Peca1 peca1;
         private PecaDAO pecaDAO;
         private PecaDAO1 pecaDAO1;
@@ -61,6 +63,8 @@ namespace FrotaVeiculoPim.Views
             tbTitulo.Text = "VEICULOS EM MANUTENÇÃO";
             spInManutencao.Visibility = Visibility.Hidden;
             spListarVeiculos.Visibility = Visibility.Visible;
+            ManutencaoDAO manutencaoDAO = new ManutencaoDAO();
+            dgVeiculo.ItemsSource = manutencaoDAO.ListarTodasManutencao();
         }
 
         private void BtnVoltarSaindo_Click(object sender, RoutedEventArgs e)
@@ -111,41 +115,68 @@ namespace FrotaVeiculoPim.Views
             FinalizarManutencaoDAO manutencaoDAO = new FinalizarManutencaoDAO();
             finalizar.Data = DateTime.Now;
             finalizar.Obs = txtDescricao1.Text;
-            finalizar.Valor = Convert.ToDecimal(txtValor.Text.Replace('$', ' ').Replace('.', ','));
-            //pegar id da manutenção e retornar abaixo.... fazer
-            finalizar.Manutencao_Id = 6;
+            finalizar.Valor = Convert.ToDecimal(txtValor.Text.Replace('$', ' ').Replace('.', ',').Replace(',', ' '));
+            finalizar.Manutencao = new Manutencao();
+            finalizar.Manutencao.Id = manutencaoDAO.PegarIdMamutencao(cbPlaca.Text);
             manutencaoDAO.FinalizarManutencao(finalizar);
             EstoqueSaidaDAO estoqueSaida = new EstoqueSaidaDAO();
             EstoqueSaida saida = new EstoqueSaida();
                 foreach (Peca1 p in pecaDAO1.Pecas)
                 { 
                     saida.Data = DateTime.Now;
-                //pegar id da ordem de serviço e retornar abaixo.... fazer
-                saida.IdOrdemServico = 1;
+                    saida.IdOrdemServico = manutencaoDAO.PegarUltimoIdInserido();
                     saida.QtdEstoque = p.Quantidade;
                     saida.IdPeca = saida.RetornoID(p.peca);
                     estoqueSaida.CadastrarEstoque(saida);
                 }
+            manutencaoDAO.AlterarSituacao(manutencaoDAO.PegarIdMamutencao(cbPlaca.Text));
             MessageBox.Show("Finalização cadastrada!");
         }
 
         private void BtnCadastrar_Click_1(object sender, RoutedEventArgs e)
         {
+            ManutencaoDAO manutencaoDAO = new ManutencaoDAO();
+            Manutencao manutencao = new Manutencao();
             if ((txtDescricao.Text == "") || (cbPlacaManutencao.Text == "") || (dpData.Text == ""))
             {
                 MessageBox.Show("há campos vazios ou incorretos!");
             }
             else
             {
-                ManutencaoDAO manutencaoDAO = new ManutencaoDAO();
-                Manutencao manutencao = new Manutencao();
-                manutencao.Data = DateTime.Now;
-                manutencao.Descricao = txtDescricao.Text;
-                manutencao.DataPrevista = Convert.ToDateTime(dpData.Text);
-                manutencao.Veiculo_Id = manutencaoDAO.RetornoID(cbPlacaManutencao.Text);
-                manutencaoDAO.CadastrarManutencao(manutencao);
-                MessageBox.Show("Cadastrado!");
+                if (manutencaoDAO.RetornarPlacasEmManutencao(cbPlacaManutencao.Text))
+                {
+                    MessageBox.Show("O carro ja esta em manutenção!");
+                }
+                else
+                {
+                    manutencao.Data = DateTime.Now;
+                    manutencao.Descricao = txtDescricao.Text;
+                    manutencao.DataPrevista = Convert.ToDateTime(dpData.Text);
+                    manutencao.Veiculo = new ClassVeiculos();
+                    manutencao.Veiculo.Id = manutencaoDAO.RetornoID(cbPlacaManutencao.Text);
+                    manutencao.Situacao = "Em manutencao";
+                    manutencaoDAO.CadastrarManutencao(manutencao);
+                    manutencaoDAO.InserirManutencaoVeiculo(cbPlacaManutencao.Text);
+                    MessageBox.Show("Cadastrado!");
+                }
             }
+        }
+
+        private void TxtBuscar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ManutencaoDAO vdao = new ManutencaoDAO();
+            dgVeiculo.ItemsSource = vdao.BuscarManutencao("%" + txtBuscar.Text + "%");
+        }
+
+        private void DgVeiculo_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            spListarVeiculos.Visibility = Visibility.Hidden;
+            spFinalizarManutencao.Visibility = Visibility.Visible;
+            Manutencao manutencao = new Manutencao();
+            manutencao = dgVeiculo.SelectedItem as Manutencao;
+            manutencao.Veiculo = new ClassVeiculos();
+            cbPeca.Text = manutencao.Veiculo.Placa;
+            IdManutencao = manutencao.Id;
         }
     }
 }

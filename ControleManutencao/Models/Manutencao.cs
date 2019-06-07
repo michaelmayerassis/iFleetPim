@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pim_ControleFrota;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +10,12 @@ namespace ControleManutencao
     public class Manutencao
     {
         public int Id { get; set; }
-        public int Veiculo_Id { get; set; }
+        //public int Veiculo_Id { get; set; }
         public string Descricao { get; set; }
         public DateTime Data { get; set; }
         public DateTime DataPrevista { get; set; }
+        public String Situacao { get; set; }
+
+        public ClassVeiculos Veiculo { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace ControleManutencao.Models
             public int Id { get; set; }
             public string Obs { get; set; }
             public DateTime Data { get; set; }
-            public int Manutencao_Id { get; set; }
-        public decimal Valor { get; set; }
+            public Manutencao Manutencao { get; set; }
+            public decimal Valor { get; set; }
     }
 }

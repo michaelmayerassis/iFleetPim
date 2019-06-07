@@ -10,6 +10,7 @@ namespace Pim_ControleFrota
 {
     public class ClassVeiculos
     {
+        public Int32 Id { get; set; }
         public Int32 Codigo { get; set; }
         public Int32 Empresa_Id;
         public String Nome { get; set; }

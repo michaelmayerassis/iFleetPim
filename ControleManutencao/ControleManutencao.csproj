@@ -53,6 +53,10 @@
       <Project>{F4E58C19-BA16-4BDA-8868-D7357B4110F3}</Project>
       <Name>ControleDePecas</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ControleVeiculo\ControleVeiculo.csproj">
+      <Project>{B01097B8-8A7A-4B26-B034-4C5920999A21}</Project>
+      <Name>ControleVeiculo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
