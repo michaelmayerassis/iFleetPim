@@ -19,6 +19,7 @@ CREATE TABLE Empresa
 CREATE TABLE Veiculo
 (
 	Id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    Empresa_Id INT UNSIGNED NOT NULL,
     Nome VARCHAR(250) NOT NULL,
     Marca VARCHAR(200) NOT NULL ,
     Modelo VARCHAR(250) NOT NULL,
@@ -26,8 +27,8 @@ CREATE TABLE Veiculo
     Renavan VARCHAR(50) NOT NULL UNIQUE,
     Placa VARCHAR(50) NOT NULL UNIQUE,
     Ano INT UNSIGNED NOT NULL,
-    PRIMARY KEY(Id)
-
+    PRIMARY KEY(Id),
+    CONSTRAINT fk_Emp_veiculo FOREIGN KEY(Empresa_Id) REFERENCES Empresa (Id)
 );
 
 CREATE TABLE Seguro
@@ -78,16 +79,13 @@ CREATE TABLE Viagem
     Dt_Entrada DATE NOT NULL,
     km_Saida DOUBLE UNSIGNED NOT NULL,
     Km_Entrada DOUBLE UNSIGNED NOT NULL,
-    Situacao VARCHAR(30),
     PRIMARY KEY(Id),
 	CONSTRAINT fk_Cpf_Viagem FOREIGN KEY(Motorista_Cpf) REFERENCES Motorista (id)
 );
 
-<<<<<<< HEAD
-=======
+ALTER TABLE viagem add column Situacao VARCHAR(30);
 
 select * from viagem;
->>>>>>> a70440f8868caa97a6d29e4f755ad1402553c0ca
 CREATE TABLE VeiculoViagem
 (
    Veiculo_Id INT UNSIGNED NOT NULL,
@@ -116,9 +114,9 @@ CREATE TABLE Manutencao
     Veiculo_Id INT UNSIGNED NOT NULL,
     Descricao VARCHAR(250) NOT NULL,
     Data DATE NOT NULL,
-    Valor DOUBLE UNSIGNED,
+    DataPrevista DATE NOT NULL,
     PRIMARY KEY(Id),
-    CONSTRAINT fk_Vei_Manutencao FOREIGN KEY(Veiculo_id) REFERENCES Veiculo (id)
+    CONSTRAINT fk_Vai_Manutencao FOREIGN KEY(Veiculo_Id) REFERENCES Veiculo (Id)
 );
 
 
@@ -128,8 +126,9 @@ CREATE TABLE VeiculoManutencao
     Manutencao_Id INT UNSIGNED NOT NULL,
     PRIMARY KEY(Veiculo_Id, Manutencao_Id),
     CONSTRAINT fk_Man_vei FOREIGN KEY(Veiculo_Id) REFERENCES Veiculo (id),
-    CONSTRAINT fk_Vei_Manu FOREIGN KEY(Manutencao_Id) REFERENCES Manutencao (id)
+    CONSTRAINT fk_Vei_Manu FOREIGN KEY(Manutencao_Id) REFERENCES Manutencao (Id)
 );
+
 
 CREATE TABLE Peca
 (
@@ -138,23 +137,21 @@ CREATE TABLE Peca
     Descricao VARCHAR(250) default"null",
     Prateleira VARCHAR(250) default "null",
     Quantidade INT UNSIGNED default "0",
-    Valor DECIMAL(9,2) UNSIGNED default "0.00",
+    Valor DECIMAL UNSIGNED default "0.00",
     EstoqueMinimo INT UNSIGNED default "0",
     PRIMARY KEY(Id)
 );
 
-
+select * from ordemservico;
 CREATE TABLE OrdemServico
 (
 	Id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     Manutencao_Id INT UNSIGNED NOT NULL,
-    peca_Id INT UNSIGNED NOT NULL,
     Dt_Saida DATE NOT NULL,
-    Quantidade INT UNSIGNED NOT NULL,
-    Valor DOUBLE UNSIGNED NOT NULL,
+    Valor decimal(9,2) UNSIGNED NOT NULL,
+    Observacao VARCHAR(250) NULL,
     PRIMARY KEY(Id),
-    CONSTRAINT fk_Man_OrdemServico FOREIGN KEY(manutencao_id) REFERENCES Manutencao (id),
-    CONSTRAINT fk_Pec_OrdemServico FOREIGN KEY(Peca_id) REFERENCES Peca (id)
+    CONSTRAINT fk_Man_OrdemServico FOREIGN KEY(manutencao_Id) REFERENCES Manutencao (Id)
 );
 
 
@@ -202,31 +199,5 @@ CREATE TABLE MovimentacaoPecaEntrada
     PRIMARY KEY (Id),
     CONSTRAINT fk_Pec_MovimentacaoPecaEntrada FOREIGN KEY(Peca_Id) REFERENCES Peca (id)
 );
-
-<<<<<<< HEAD
-
-
-INSERT INTO Veiculo(Nome, Marca, Modelo, Cor, Renavan, Placa, Ano)
-VALUES("Fiesta","Chevrolet","2014","Preto","123456","ABC0001","2015"),
-("BMW","Mercedez","2020","Cinza","98564","BOA9999","2019"),
-("Toro","Fiat","2020","Vermelho","A67637","FIO5481","2019");
-
-insert into veiculoviagem (Veiculo_Id, Viagem_Id) VALUES();
-
-select * from pim.motorista;
-
-INSERT INTO Motorista (Cpf, Nome, Cnh,Categoria_Cnh, Dt_Nascimento,Exame_Medico, Email, Endereco, Numero, Cidade, Bairro, Cep)
-VALUES("47232843895","Joao Vitor Vizu", "854961", "A", "1999-05-21", "FEITO", "joaovizu@hotmail.com", "Rua dos Albergues", "159","Jabogua","Bairro 1", "14680000"),
-("25019523089","Arlindo Torres", "90920", "D", "1970-11-15", "FEITO", "arlindinhozikamemu@zikas.com", "Rua dos Mosquitos", "666","Mosquitolandia", "Barrinho","85964001");
-
-SELECT v.Id as IdVeiculo,v.Nome as Nome, v.Placa as Placa , via.situacao as Situacao,via.Local as Local, via.Km_Entrada as KmEntrada,via.Dt_Entrada as DataEntrada, 
-via.Situacao as Situacao, date_format(via.Dt_Saida, '%d/%m/%Y') as DataSaida,via.Km_Saida as KmSaida,
-m.Nome as `Nome Motorista`
-FROM VeiculoViagem vv 
-INNER JOIN veiculo v ON vv.veiculo_id = v.id 
-INNER JOIN viagem via ON vv.viagem_id = via.id
-inner join motorista m on via.Motorista_Cpf = m.id;
-=======
-use Pim;
-select * from abastecimento;
->>>>>>> a70440f8868caa97a6d29e4f755ad1402553c0ca
+use pim;
+select * from movimentacaopecasaida;

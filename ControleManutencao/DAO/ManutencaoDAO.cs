@@ -63,7 +63,7 @@ namespace ControleManutencao
         public List<Manutencao> ListarTodasManutencao()
         {
             List<Manutencao> manutencaos = new List<Manutencao>();
-            String query = "SELECT v.Id as IdVeiculo,v.Nome as Nome, v.Placa as Placa , m.id as idManutenção, m.situacao as Situacao, m.Descricao as Descricao, m.Data as Data, m.DataPrevista as DataPrevista FROM VeiculoManutencao vm INNER JOIN veiculo v ON vm.veiculo_id = v.id INNER JOIN manutencao m ON vm.manutencao_id = m.id where m.situacao = 'Em manutencao';";
+            String query = "SELECT v.Id as IdVeiculo, v.Nome as Nome, v.Placa as Placa , m.id as idManutenção, m.situacao as Situacao, m.Descricao as Descricao, m.Data as Data, m.DataPrevista as DataPrevista FROM VeiculoManutencao vm INNER JOIN veiculo v ON vm.veiculo_id = v.id INNER JOIN manutencao m ON vm.manutencao_id = m.id where m.situacao = 'Em manutencao';";
 
             MySqlConnection conn = new SqlConnection().Criar();
             MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -83,7 +83,7 @@ namespace ControleManutencao
         public List<Manutencao> BuscarManutencao(String placa)
         {
             List<Manutencao> manutencaos = new List<Manutencao>();
-            String query = "SELECT v.Id as IdVeiculo,v.Nome as Nome, v.Placa as Placa , m.id as idManutenção, m.situacao as Situacao, m.Descricao as Descricao, m.Data as Data, m.DataPrevista as DataPrevista FROM VeiculoManutencao vm INNER JOIN veiculo v ON vm.veiculo_id = v.id INNER JOIN manutencao m ON vm.manutencao_id = m.id where m.situacao = 'Em manutencao' and v.placa = @placa;";
+            String query = "SELECT v.Id as IdVeiculo, v.Nome as Nome, v.Placa as Placa , m.id as idManutenção, m.situacao as Situacao, m.Descricao as Descricao, m.Data as Data, m.DataPrevista as DataPrevista FROM VeiculoManutencao vm INNER JOIN veiculo v ON vm.veiculo_id = v.id INNER JOIN manutencao m ON vm.manutencao_id = m.id where m.situacao = 'Em manutencao' and v.placa like @placa;";
             MySqlConnection conn = new SqlConnection().Criar();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@placa", placa);
@@ -108,7 +108,6 @@ namespace ControleManutencao
             {
                 Manutencao m = new Manutencao()
                 {
-                  //  Id = Convert.ToInt32(dr["idManutencao"]),
                     Data = Convert.ToDateTime(dr["Data"]),
                     DataPrevista = Convert.ToDateTime(dr["DataPrevista"]),
                     Descricao = dr["Descricao"].ToString(),

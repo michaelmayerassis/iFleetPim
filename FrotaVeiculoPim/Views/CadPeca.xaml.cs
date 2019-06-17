@@ -130,7 +130,7 @@ namespace FrotaVeiculoPim.Views
         {
             peca.Nome = txtNome.Text;
             peca.Pratileira = txtPrateleira.Text;
-            peca.Valor = Convert.ToDecimal(txtValor.Text.Replace('$', ' ').Replace('.', ',').Replace(',', ' '));
+            peca.Valor = Convert.ToDecimal(txtValor.Text.Replace('$', ' ').Replace('.', ','));
             if (txtQtdMin.Text == "")
             {
                 peca.QtdMin = 0;
