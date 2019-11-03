@@ -46,7 +46,7 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Label Content="Placa:" Grid.Column="0" Margin="0,6,0,10"/>
-                                    <TextBox x:Name="txtPlaca" Grid.Row="1" Margin="0,0,80,0"></TextBox>
+                                    <TextBox x:Name="txtPlaca" Grid.Row="1" Margin="0,0,80,0" TextChanged="TxtPlaca_TextChanged"></TextBox>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Margin="0,0,30,30">
@@ -73,7 +73,7 @@
                                     <TextBox x:Name="txtModelo" Grid.Row="1"  Margin="0,94,316,-94"/>
                                 </Grid>
                                 <Label Content="Ano de Fabricação:" Margin="250,10,58,0" Height="54"/>
-                                <TextBox x:Name="txtAno"  Margin="250,0,40,0" Height="34"/>
+                                <TextBox x:Name="txtAno"  Margin="250,0,40,0" Height="34" TextChanged="TxtAno_TextChanged"/>
                             </StackPanel>
                             <StackPanel Grid.Row="3" Margin="0,0,30,30">
                                 <Grid>

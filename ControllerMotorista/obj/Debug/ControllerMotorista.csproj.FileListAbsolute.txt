@@ -1,0 +1,13 @@
+C:\Users\55169\Documents\git\ControllerMotorista\bin\Debug\ControllerMotorista.dll
+C:\Users\55169\Documents\git\ControllerMotorista\bin\Debug\ControllerMotorista.pdb
+C:\Users\55169\Documents\git\ControllerMotorista\bin\Debug\ControleDePecas.dll
+C:\Users\55169\Documents\git\ControllerMotorista\bin\Debug\MySql.Data.dll
+C:\Users\55169\Documents\git\ControllerMotorista\bin\Debug\Google.Protobuf.dll
+C:\Users\55169\Documents\git\ControllerMotorista\bin\Debug\Renci.SshNet.dll
+C:\Users\55169\Documents\git\ControllerMotorista\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\55169\Documents\git\ControllerMotorista\bin\Debug\ControleDePecas.pdb
+C:\Users\55169\Documents\git\ControllerMotorista\bin\Debug\MySql.Data.xml
+C:\Users\55169\Documents\git\ControllerMotorista\obj\Debug\ControllerMotorista.csprojAssemblyReference.cache
+C:\Users\55169\Documents\git\ControllerMotorista\obj\Debug\ControllerMotorista.csproj.CopyComplete
+C:\Users\55169\Documents\git\ControllerMotorista\obj\Debug\ControllerMotorista.dll
+C:\Users\55169\Documents\git\ControllerMotorista\obj\Debug\ControllerMotorista.pdb

@@ -102,7 +102,7 @@ namespace ControllerMotorista.dao
                 m.Endereco.Numero = dr["Numero"].ToString();
                 m.Endereco.Cidade = dr["Cidade"].ToString();
                 m.Endereco.Bairro = dr["Bairro"].ToString();
-                m.Endereco.Cep = dr["Cep"].ToString();
+                m.Endereco.Cep = Convert.ToInt32(dr["Cep"]);
                 motorista.Add(m);
             }
             return motorista;

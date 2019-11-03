@@ -63,7 +63,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Label Content="Quantidade:" Grid.Column="0" Margin="-58,8,278,8"/>
-                        <TextBox x:Name="txtQtd" Grid.Row="1"  Margin="-56,2,282,-2"/>
+                        <TextBox x:Name="txtQtd" Grid.Row="1"  Margin="-56,2,282,-2" TextChanged="TxtQtd_TextChanged"/>
                         <Label Content="Valor:" Grid.Column="0" Margin="132,8,88,8"/>
                     </Grid>
                 </StackPanel>

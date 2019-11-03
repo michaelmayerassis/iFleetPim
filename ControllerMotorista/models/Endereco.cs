@@ -12,7 +12,7 @@ namespace ControllerMotorista.models
         public String Numero { get; set; }
         public String Cidade { get; set; }
         public String Bairro { get; set; }
-        public String Cep { get; set; }
+        public int Cep { get; set; }
 
         public override string ToString()
         {

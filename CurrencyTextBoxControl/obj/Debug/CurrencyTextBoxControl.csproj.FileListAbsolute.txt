@@ -1,0 +1,12 @@
+C:\Users\55169\Documents\git\CurrencyTextBoxControl\bin\Debug\CurrencyTextBoxControl.dll
+C:\Users\55169\Documents\git\CurrencyTextBoxControl\bin\Debug\CurrencyTextBoxControl.pdb
+C:\Users\55169\Documents\git\CurrencyTextBoxControl\obj\Debug\CurrencyTextBoxControl.csprojAssemblyReference.cache
+C:\Users\55169\Documents\git\CurrencyTextBoxControl\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\55169\Documents\git\CurrencyTextBoxControl\obj\Debug\CurrencyTextBoxControl_MarkupCompile.cache
+C:\Users\55169\Documents\git\CurrencyTextBoxControl\obj\Debug\CurrencyTextBoxControl_MarkupCompile.lref
+C:\Users\55169\Documents\git\CurrencyTextBoxControl\obj\Debug\Themes\Generic.baml
+C:\Users\55169\Documents\git\CurrencyTextBoxControl\obj\Debug\CurrencyTextBoxControl.g.resources
+C:\Users\55169\Documents\git\CurrencyTextBoxControl\obj\Debug\CurrencyTextBoxControl.Properties.Resources.resources
+C:\Users\55169\Documents\git\CurrencyTextBoxControl\obj\Debug\CurrencyTextBoxControl.csproj.GenerateResource.cache
+C:\Users\55169\Documents\git\CurrencyTextBoxControl\obj\Debug\CurrencyTextBoxControl.dll
+C:\Users\55169\Documents\git\CurrencyTextBoxControl\obj\Debug\CurrencyTextBoxControl.pdb

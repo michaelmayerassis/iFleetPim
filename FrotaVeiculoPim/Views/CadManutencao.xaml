@@ -14,7 +14,7 @@
                 <Separator/>
 
                 <Grid>
-                    <StackPanel x:Name="spInManutencao" Margin="0,60,0,0" Visibility="Visible">
+                    <StackPanel x:Name="spInManutencao" Margin="0,60,0,0"  >
                         <Button Width="400" Margin="0,0,0,30"  materialDesign:ShadowAssist.ShadowDepth="Depth2"
                                 Foreground="White" BorderBrush="{x:Null}"  Height="auto" FontSize="20px"
                                 x:Name="btnCadManutencao" Click="BtnCadManutencao_Click">
@@ -69,11 +69,11 @@
                     </StackPanel>
 
                     <StackPanel x:Name="spCadManutencao" Visibility="Collapsed">
-                        <Grid Margin="60,30,60,0" ToolTip="Informe a placa do veículo">
+                        <Grid Margin="60,30,60,0" >
                             <Label Content="Placa do veiculo:" Margin="0,0,660,0"/>
                             <ComboBox Margin="209,3,0,149" x:Name="cbPlacaManutencao" HorizontalAlignment="Left" Width="250"/>
                             <Label x:Name="lblData" Content="Manutenção prevista para:" Margin="477,2,303,136"/>
-                            <DatePicker x:Name="dpData" VerticalAlignment="Stretch" Margin="777,-3,72,141"/>
+                            <DatePicker x:Name="dpData" Margin="777,-3,72,141" FontSize="16"/>
                         </Grid>
 
                         <Grid Margin="60,30,60,0" x:Name="gridVeiculo" />
@@ -156,14 +156,14 @@
                                 <ColumnDefinition Width="20*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Informe a placa do veiculo:" Margin="0,0,428,141"/>
-                            <ComboBox Margin="311,3,0,149" x:Name="cbPlaca" HorizontalAlignment="Left" Width="250"/>
-                            <Label x:Name="lblDataSaida" Content="Valor Manutenção:" Margin="576,2,279,139" Grid.ColumnSpan="2"/>
+                            <ComboBox Margin="311,0,0,171" x:Name="cbPlaca" HorizontalAlignment="Left" Width="250"/>
+                            <Label x:Name="lblDataSaida" Content="Valor Manutenção:" Margin="576,6,279,157" Grid.ColumnSpan="2"/>
                             <GroupBox Margin="10,59,70,-111" FontSize="24"  BorderBrush="Black"  Background="#FFF0F0F0" Foreground="#FF130A0A" Grid.ColumnSpan="2">
                                 <GroupBox.Header>Peças utilizadas</GroupBox.Header>
                                 <Grid>
                                     <Label Content="Peça:" Margin="3,0,848,122"/>
                                     <ComboBox Margin="81,-2,534,141" x:Name="cbPeca"/>
-                                    <TextBox Margin="638,11,186,138" x:Name="txtQtd" Background="{x:Null}"/>
+                                    <TextBox Margin="638,11,186,138" x:Name="txtQtd" Background="{x:Null}" TextChanged="TxtQtd_TextChanged"/>
                                     <Label Content="Quantidade:" Margin="465,4,344,116"/>
                                     <Button x:Name="btnAdicionar" HorizontalAlignment="Right" Width="55" Margin="0,8,101,137" Cursor="Hand" Click="BtnAdicionar_Click" Height="Auto">
                                         <Button.Background>
@@ -186,7 +186,7 @@
                                     </Button>
                                 </Grid>
                             </GroupBox>
-                            <CurrencyTextBoxControl:CurrencyTextBox x:Name="txtValor" materialDesign:HintAssist.Hint="Valor"  FontSize="24" FontFamily="IBM Plex Sans" Margin="66,-5,77,147" Grid.Column="1">
+                            <CurrencyTextBoxControl:CurrencyTextBox x:Name="txtValor" materialDesign:HintAssist.Hint="Valor"  FontSize="24" FontFamily="IBM Plex Sans" Margin="66,-2,77,165" Grid.Column="1" VerticalAlignment="Bottom">
                                 <CurrencyTextBoxControl:CurrencyTextBox.BorderBrush>
                                     <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
                                         <GradientStop Color="#FFABADB3" Offset="0.05"/>
@@ -270,7 +270,7 @@
                         </Grid>
                     </StackPanel>
 
-                    <StackPanel x:Name="spListarVeiculos" Margin="10,0,10,0" Visibility="Hidden">
+                    <StackPanel x:Name="spListarVeiculos" Margin="10,0,10,0" Visibility="Collapsed">
                         <TextBlock Margin="10,0,0,10" Style="{StaticResource tituloFiltro}">FILTROS</TextBlock>
                         <Grid Margin="0,0,0,30">
                             <Label x:Name="lblFiltro" Margin="0,0,849,0" Content="Informe a placa do carro:"></Label>

@@ -142,13 +142,13 @@ namespace FrotaVeiculoPim.Views
             AlterarTamanhoColunas();
         }
 
-        private string RetirarTracoCep()
+        private int RetirarTracoCep()
         {
-            string cep = "";
+            int cep =0;
 
             if (txtCep.Text.Contains("-"))
             {
-                cep =  txtCep.Text.Replace("-", "");
+                cep =  Convert.ToInt32(txtCep.Text.Replace("-", " "));
             }
             return cep;
         }
@@ -164,6 +164,42 @@ namespace FrotaVeiculoPim.Views
         {
             spListaMotorista.Visibility = Visibility.Hidden;
             cadMotorista.Visibility = Visibility.Visible;
+        }
+
+        private void TxtNumero_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            Int32 selectionStart = textBox.SelectionStart;
+            Int32 selectionLength = textBox.SelectionLength;
+
+            String newText = String.Empty;
+            foreach (Char c in textBox.Text.ToCharArray())
+            {
+                if (Char.IsDigit(c) || Char.IsControl(c)) newText += c;
+            }
+
+            textBox.Text = newText;
+
+            textBox.SelectionStart = selectionStart <= textBox.Text.Length ?
+                selectionStart : textBox.Text.Length;
+        }
+
+        private void TxtCpf_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            Int32 selectionStart = textBox.SelectionStart;
+            Int32 selectionLength = textBox.SelectionLength;
+
+            String newText = String.Empty;
+            foreach (Char c in textBox.Text.ToCharArray())
+            {
+                if (Char.IsDigit(c) || Char.IsControl(c)) newText += c;
+            }
+
+            textBox.Text = newText;
+
+            textBox.SelectionStart = selectionStart <= textBox.Text.Length ?
+                selectionStart : textBox.Text.Length;
         }
     }
 }

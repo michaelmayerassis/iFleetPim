@@ -77,5 +77,23 @@ namespace FrotaVeiculoPim.Views
                 MessageBox.Show("Campos nulos, ou incorretos!!");
             }
         }
+
+        private void TxtQtdEstoque_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            Int32 selectionStart = textBox.SelectionStart;
+            Int32 selectionLength = textBox.SelectionLength;
+
+            String newText = String.Empty;
+            foreach (Char c in textBox.Text.ToCharArray())
+            {
+                if (Char.IsDigit(c) || Char.IsControl(c)) newText += c;
+            }
+
+            textBox.Text = newText;
+
+            textBox.SelectionStart = selectionStart <= textBox.Text.Length ?
+                selectionStart : textBox.Text.Length;
+        }
     }
 }

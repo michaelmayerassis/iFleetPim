@@ -1,0 +1,16 @@
+C:\Users\55169\Documents\git\ControleManutencao\bin\Debug\ControleManutencao.dll
+C:\Users\55169\Documents\git\ControleManutencao\bin\Debug\ControleManutencao.pdb
+C:\Users\55169\Documents\git\ControleManutencao\bin\Debug\ControleDePecas.dll
+C:\Users\55169\Documents\git\ControleManutencao\bin\Debug\ControleVeiculo.dll
+C:\Users\55169\Documents\git\ControleManutencao\bin\Debug\MySql.Data.dll
+C:\Users\55169\Documents\git\ControleManutencao\bin\Debug\Google.Protobuf.dll
+C:\Users\55169\Documents\git\ControleManutencao\bin\Debug\Renci.SshNet.dll
+C:\Users\55169\Documents\git\ControleManutencao\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\55169\Documents\git\ControleManutencao\bin\Debug\ControleDePecas.pdb
+C:\Users\55169\Documents\git\ControleManutencao\bin\Debug\ControleVeiculo.pdb
+C:\Users\55169\Documents\git\ControleManutencao\bin\Debug\ControleVeiculo.dll.config
+C:\Users\55169\Documents\git\ControleManutencao\bin\Debug\MySql.Data.xml
+C:\Users\55169\Documents\git\ControleManutencao\obj\Debug\ControleManutencao.csprojAssemblyReference.cache
+C:\Users\55169\Documents\git\ControleManutencao\obj\Debug\ControleManutencao.csproj.CopyComplete
+C:\Users\55169\Documents\git\ControleManutencao\obj\Debug\ControleManutencao.dll
+C:\Users\55169\Documents\git\ControleManutencao\obj\Debug\ControleManutencao.pdb

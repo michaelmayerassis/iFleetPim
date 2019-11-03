@@ -1,0 +1,16 @@
+C:\Users\55169\Documents\git\ControleMulta\bin\Debug\ControleMulta.dll.config
+C:\Users\55169\Documents\git\ControleMulta\bin\Debug\ControleMulta.dll
+C:\Users\55169\Documents\git\ControleMulta\bin\Debug\ControleMulta.pdb
+C:\Users\55169\Documents\git\ControleMulta\bin\Debug\ControleDePecas.dll
+C:\Users\55169\Documents\git\ControleMulta\bin\Debug\MySql.Data.dll
+C:\Users\55169\Documents\git\ControleMulta\bin\Debug\Google.Protobuf.dll
+C:\Users\55169\Documents\git\ControleMulta\bin\Debug\Renci.SshNet.dll
+C:\Users\55169\Documents\git\ControleMulta\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\55169\Documents\git\ControleMulta\bin\Debug\ControleDePecas.pdb
+C:\Users\55169\Documents\git\ControleMulta\bin\Debug\MySql.Data.xml
+C:\Users\55169\Documents\git\ControleMulta\obj\Debug\ControleMulta.csprojAssemblyReference.cache
+C:\Users\55169\Documents\git\ControleMulta\obj\Debug\ControleMulta.Properties.Resources.resources
+C:\Users\55169\Documents\git\ControleMulta\obj\Debug\ControleMulta.csproj.GenerateResource.cache
+C:\Users\55169\Documents\git\ControleMulta\obj\Debug\ControleMulta.csproj.CopyComplete
+C:\Users\55169\Documents\git\ControleMulta\obj\Debug\ControleMulta.dll
+C:\Users\55169\Documents\git\ControleMulta\obj\Debug\ControleMulta.pdb

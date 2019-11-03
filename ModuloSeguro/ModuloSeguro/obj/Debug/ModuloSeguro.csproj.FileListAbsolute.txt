@@ -1,0 +1,13 @@
+C:\Users\55169\Documents\git\ModuloSeguro\ModuloSeguro\bin\Debug\ModuloSeguro.dll
+C:\Users\55169\Documents\git\ModuloSeguro\ModuloSeguro\bin\Debug\ModuloSeguro.pdb
+C:\Users\55169\Documents\git\ModuloSeguro\ModuloSeguro\bin\Debug\MySql.Data.dll
+C:\Users\55169\Documents\git\ModuloSeguro\ModuloSeguro\bin\Debug\Google.Protobuf.dll
+C:\Users\55169\Documents\git\ModuloSeguro\ModuloSeguro\bin\Debug\Renci.SshNet.dll
+C:\Users\55169\Documents\git\ModuloSeguro\ModuloSeguro\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\55169\Documents\git\ModuloSeguro\ModuloSeguro\bin\Debug\MySql.Data.xml
+C:\Users\55169\Documents\git\ModuloSeguro\ModuloSeguro\obj\Debug\ModuloSeguro.csprojAssemblyReference.cache
+C:\Users\55169\Documents\git\ModuloSeguro\ModuloSeguro\obj\Debug\ModuloSeguro.Properties.Resources.resources
+C:\Users\55169\Documents\git\ModuloSeguro\ModuloSeguro\obj\Debug\ModuloSeguro.csproj.GenerateResource.cache
+C:\Users\55169\Documents\git\ModuloSeguro\ModuloSeguro\obj\Debug\ModuloSeguro.csproj.CopyComplete
+C:\Users\55169\Documents\git\ModuloSeguro\ModuloSeguro\obj\Debug\ModuloSeguro.dll
+C:\Users\55169\Documents\git\ModuloSeguro\ModuloSeguro\obj\Debug\ModuloSeguro.pdb

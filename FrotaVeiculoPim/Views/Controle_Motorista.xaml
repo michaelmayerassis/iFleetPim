@@ -49,7 +49,7 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Label Content="CPF:"/>
-                                    <TextBox x:Name="txtCpf" Grid.Row="1" MaxLength="11"/>
+                                    <TextBox x:Name="txtCpf" Grid.Row="1" MaxLength="11" TextChanged="TxtCpf_TextChanged"/>
                                 </Grid>
                             </StackPanel>
 
@@ -149,7 +149,7 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Label Content="Numero:"/>
-                                    <TextBox x:Name="txtNumero" Grid.Row="1"/>
+                                    <TextBox x:Name="txtNumero" Grid.Row="1" TextChanged="TxtNumero_TextChanged"/>
                                 </Grid>
                             </StackPanel>
 

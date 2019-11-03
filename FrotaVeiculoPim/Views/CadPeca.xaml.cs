@@ -22,9 +22,8 @@ namespace FrotaVeiculoPim.Views
     /// </summary>
     public partial class CadPeca// : UserControl
     {
-        static int Id;
         private Peca peca;
-        private PecaDAO pecaDAO;
+        private readonly PecaDAO pecaDAO;
         public CadPeca()
         {   
             InitializeComponent();
@@ -32,7 +31,7 @@ namespace FrotaVeiculoPim.Views
             pecaDAO = new PecaDAO();
         }
 
-        private void btnCadastrar_Click(object sender, RoutedEventArgs e)
+        private void BtnCadastrar_Click(object sender, RoutedEventArgs e)
         {
             if (pecaDAO.RetornarNomePeca(txtNome.Text))
             {
@@ -151,7 +150,7 @@ namespace FrotaVeiculoPim.Views
             txtDescricao.Text = "";
         }
 
-        private void btnVoltar_Click(object sender, RoutedEventArgs e)
+        private void BtnVoltar_Click(object sender, RoutedEventArgs e)
         {
             txtTitulo.Text = "PEÇA";
             dgListar.Visibility = Visibility.Collapsed;
@@ -172,7 +171,6 @@ namespace FrotaVeiculoPim.Views
             txtValor.Number = peca.Valor;
             txtQtdMin.Text = peca.QtdMin.ToString();
             txtDescricao.Text = peca.Descricao;
-            Id = peca.Id;
         }
 
         private void BtnAltera_Click(object sender, RoutedEventArgs e)
@@ -225,6 +223,23 @@ namespace FrotaVeiculoPim.Views
         private void BtnBuscar_Click(object sender, RoutedEventArgs e)
         {
             dgListar.ItemsSource = pecaDAO.BuscarPeca("%" + txtBuscar.Text + "%");
+        }
+
+        private void TxtQtdMin_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            Int32 selectionStart = textBox.SelectionStart;
+
+            String newText = String.Empty;
+            foreach (Char c in textBox.Text.ToCharArray())
+            {
+                if (Char.IsDigit(c) || Char.IsControl(c)) newText += c;
+            }
+
+            textBox.Text = newText;
+
+            textBox.SelectionStart = selectionStart <= textBox.Text.Length ?
+                selectionStart : textBox.Text.Length;
         }
     }
 }

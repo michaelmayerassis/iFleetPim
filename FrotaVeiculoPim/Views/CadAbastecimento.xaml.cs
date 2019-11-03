@@ -35,12 +35,17 @@ namespace FrotaVeiculoPim.Views
                 Combustivel = txtCombustivel.Text,
                 KM = Convert.ToDouble(txtKM.Text),
                 Quant = Convert.ToDouble(txtQtd.Text),
-                Valor_Total = Convert.ToDouble(txtValor.Text.Replace('$', ' ').Replace('.', ',').Replace(',', ' '))
+                Valor_Total = Convert.ToDouble(txtValor.Text.Replace('$', ' ').Replace('.', ','))
         };
             abastecimentos.Codigo_Veiculo = abastecimentos.RetornoID(cbPlaca.Text);
             ClassAbastecimentoDAO abastecimentoDAO = new ClassAbastecimentoDAO();
             abastecimentoDAO.Cadastrar(abastecimentos);
             MessageBox.Show("Cadastrado!");
+        }
+
+        private void TxtQtd_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -23,8 +23,8 @@ namespace Pim_ControleFrota.Class_DAO
             //abre o banco de dados
            // con.Open();
             //Comando sql para inseri dados na tabela
-            MySqlCommand cmd = new MySqlCommand("Insert into Veiculo(nome, modelo, placa, ano, renavan, cor, marca)" +
-                " values (@nome, @modelo, @placa, @ano, @renavan, @cor, @marca)", con);
+            MySqlCommand cmd = new MySqlCommand("Insert into Veiculo(empresa_Id, nome, modelo, placa, ano, renavan, cor, marca)" +
+                " values (1, @nome, @modelo, @placa, @ano, @renavan, @cor, @marca)", con);
 
             //Passar oque cada campo do banco vai receber
             
